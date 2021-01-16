@@ -31,12 +31,12 @@ int main(int argc, char** argv){
 			//log_current_working(brief_task_description, start_time_stemp, get_current_date_time_as_stemp(), get_current_date_time_as_minutes() - start_min);
 		}
 		// force log
-		if ((GetAsyncKeyState('F') & 0x8000)) {
+		if ((GetAsyncKeyState(VK_LSHIFT))&&(GetAsyncKeyState('F') & 0x8000)) {
 			log_current_working(brief_task_description, timelength, start_time_stemp, get_current_date_time_as_stemp(), get_current_date_time_as_minutes() - start_min);
 			Beep(528, 500);
 		}
 		// log when exit
-		if ((GetAsyncKeyState('Q') & 0x8000)) {
+		if ((GetAsyncKeyState(VK_LSHIFT)) && (GetAsyncKeyState('Q') & 0x8000)) {
 			log_current_working(brief_task_description, timelength, start_time_stemp, get_current_date_time_as_stemp(), get_current_date_time_as_minutes() - start_min);
 			Beep(528, 500);
 			exit(0);
