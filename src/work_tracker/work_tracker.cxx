@@ -4,16 +4,16 @@
 #include "zrtech_os_api.h"
 
 int main(int argc, char** argv){
+	int timelength = 30;
+	std::string brief_task_description;
+	std::cout << "brief task description: "; cin >> brief_task_description;
+	std::cout << "how long is the current task expected?: (in min) "; cin >> timelength;
+	std::cout << "timer starts at: " + get_current_date_time_as_stemp() + ": " + to_string(timelength) + " min" <<std::endl;
 	int start_min = get_current_date_time_as_minutes();
 	string start_time_stemp = get_current_date_time_as_stemp();
 	int temp_min = get_current_date_time_as_minutes();
 	int num_timelength = 0;
-	int timelength = 30;
 	bool debug = false;
-	std::string brief_task_description;
-	std::cout << "brief task description: "; cin >> brief_task_description;
-	std::cout << "how long is the current task expected?: (in min) "; cin >> timelength;
-	std::cout << "timer starts: " + to_string(timelength) + " min" <<std::endl;
 	while (true) {
 		if(debug)
 			std::cout << "current time in mins: " + to_string(get_current_date_time_as_minutes()) << std::endl;

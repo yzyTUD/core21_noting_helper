@@ -3,3 +3,8 @@
 		actual_from:	2021/1/16_13:47
 		actual_to:	2021/1/16_13:48
 		actual_takes:	1 min 
+	 essen_mittag
+		exp_time:	30
+		actual_from:	2021/1/16_13:56
+		actual_to:	2021/1/16_13:57
+		actual_takes:	1 min 

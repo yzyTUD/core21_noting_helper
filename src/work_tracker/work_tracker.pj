@@ -1,5 +1,5 @@
 @=
-projectName="noting_helper";
+projectName="work_tracker";
 projectType="application";
 projectGUID="23208671-D976-41F2-838B-A65C744C7877";
 addProjectDirs=[CGV_DIR."/plugins", CGV_DIR."/libs", CGV_DIR."/3rd"];
