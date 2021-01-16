@@ -111,6 +111,15 @@ int get_current_date_time_as_minutes() {
 	return Day * 24 * 60 + Hour * 60 + Min;;
 }
 
+string get_expected_time_from_current_given_mins_to_go(int min_to_go) {
+	int current_mins = get_current_date_time_as_minutes();
+	int expected_mins = min_to_go + current_mins;
+	int exp_day = expected_mins / (24 * 60);
+	int exp_hour = (expected_mins - exp_day * 24 * 60) / 60;
+	int exp_min = expected_mins % 60;
+	return to_string(exp_hour) + ":" + to_string(exp_min);
+}
+
 string get_clipboard_text()
 {
 	RaiiClipboard clipboard;

@@ -8,7 +8,8 @@ int main(int argc, char** argv){
 	std::string brief_task_description;
 	std::cout << "brief task description: "; cin >> brief_task_description;
 	std::cout << "how long is the current task expected?: (in min) "; cin >> timelength;
-	std::cout << "timer starts at: " + get_current_date_time_as_stemp() + ": " + to_string(timelength) + " min" <<std::endl;
+	std::cout << "timer starts at: " + get_current_date_time_as_stemp() + ", " + to_string(timelength) + " min" <<std::endl;
+	std::cout << "expected ending time: " + get_expected_time_from_current_given_mins_to_go(timelength) << std::endl;
 	int start_min = get_current_date_time_as_minutes();
 	string start_time_stemp = get_current_date_time_as_stemp();
 	int temp_min = get_current_date_time_as_minutes();
