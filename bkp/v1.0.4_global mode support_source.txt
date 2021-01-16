@@ -1,0 +1,230 @@
+
+
+
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <fstream>
+#include <windows.h>
+#include <ctime>
+#include <algorithm>
+using namespace std;
+
+class RaiiClipboard
+{
+public:
+	RaiiClipboard()
+	{
+		if (!OpenClipboard(nullptr))
+			throw runtime_error("Can't open clipboard.");
+		// ... or define some custom exception class for clipboard errors.
+	}
+
+	~RaiiClipboard()
+	{
+		CloseClipboard();
+	}
+
+	// Ban copy   
+private:
+	RaiiClipboard(const RaiiClipboard&);
+	RaiiClipboard& operator=(const RaiiClipboard&);
+};
+
+class RaiiTextGlobalLock
+{
+public:
+	explicit RaiiTextGlobalLock(HANDLE hData)
+		: m_hData(hData)
+	{
+		m_psz = static_cast<const char*>(GlobalLock(m_hData));
+		if (!m_psz)
+			throw runtime_error("Can't acquire lock on clipboard text.");
+	}
+
+	~RaiiTextGlobalLock()
+	{
+		GlobalUnlock(m_hData);
+	}
+
+	const char* Get() const
+	{
+		return m_psz;
+	}
+
+private:
+	HANDLE m_hData;
+	const char* m_psz;
+
+	// Ban copy
+	RaiiTextGlobalLock(const RaiiTextGlobalLock&);
+	RaiiTextGlobalLock& operator=(const RaiiTextGlobalLock&);
+};
+
+std::string get_current_date_time() {
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	int Year = timeinfo->tm_year;
+	int Month = timeinfo->tm_mon;
+	int Day = timeinfo->tm_mday;
+	int Hour = timeinfo->tm_hour;
+	int Min = timeinfo->tm_min;
+	int Sec = timeinfo->tm_sec;
+
+	return to_string(1900 + Year) + "." + to_string(1 + Month) + "." + to_string(Day) + ":"
+		+ to_string(Hour) + "h" +
+		to_string(Min) + "m" +
+		to_string(Sec) + "s";
+}
+
+std::string get_current_date_time_for_filename() {
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	int Year = timeinfo->tm_year;
+	int Month = timeinfo->tm_mon;
+	int Day = timeinfo->tm_mday;
+	int Hour = timeinfo->tm_hour;
+	int Min = timeinfo->tm_min;
+	int Sec = timeinfo->tm_sec;
+
+	return to_string(1900 + Year) + "-" + to_string(1 + Month) + "-" + to_string(Day);
+}
+
+int get_current_date_time_as_minutes() {
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	int Year = timeinfo->tm_year;
+	int Month = timeinfo->tm_mon;
+	int Day = timeinfo->tm_mday;
+	int Hour = timeinfo->tm_hour;
+	int Min = timeinfo->tm_min;
+	int Sec = timeinfo->tm_sec;
+
+	return Hour * 60 + Min;;
+}
+
+string get_clipboard_text()
+{
+	RaiiClipboard clipboard;
+
+	HANDLE hData = nullptr;
+	while (hData == nullptr)
+		hData = GetClipboardData(CF_TEXT);
+
+	RaiiTextGlobalLock textGlobalLock(hData);
+	string text(textGlobalLock.Get());
+
+	return text;
+}
+void replace_string_in_place(std::string& subject, const std::string& search,
+	const std::string& replace) {
+	size_t pos = 0;
+	while ((pos = subject.find(search, pos)) != std::string::npos) {
+		subject.replace(pos, search.length(), replace);
+		pos += replace.length();
+	}
+}
+
+#include <algorithm>
+int main(int argc, char** argv)
+{
+	static const int kExitOk = 0;
+	if (argc < 2)
+		std::cout << "a file name needed! ";
+	ofstream report;
+	report.open(std::string(argv[1]), std::ofstream::out | std::ofstream::app);
+	ofstream logger;
+	logger.open(std::string("log_" + get_current_date_time_for_filename() + ".txt"), std::ofstream::out | std::ofstream::app);
+	string laststr = get_clipboard_text();
+	replace_string_in_place(laststr, "\r\n", " ");
+	std::cout << get_current_date_time() << std::endl;
+	std::cout << "press ctrl-c, strings will be stored automatically!" << std::endl;
+	string curstr;
+	int startmin = get_current_date_time_as_minutes();
+	int mode = 0;
+	/* for input large number of questions, xxx. one can also type with less effecient! 
+		0 - description mode, hlev understading 
+		1 - what question mode 
+		2 - task mode 
+		// dep. just record multiple lines, we can re arrange them later! with some heuristics! 
+			3 - how is used? 
+			4 - why do we have to 
+			5 - which ones?/ two kinds of do you know?
+			6 - calcu. of
+	*/
+	int number_of_half_hour = 0;
+	while (1) {
+		if (!get_clipboard_text().empty())
+		{
+			curstr = get_clipboard_text();
+			replace_string_in_place(curstr, "\r\n", " ");
+			if (curstr != laststr) {
+				Beep(528, 500);
+				if (mode == 0) {
+					report << "\t" << curstr << endl;
+					std::cout << "t: " + get_current_date_time() + ": " << curstr.substr(0, 50) << "..." << std::endl;
+				}
+				else if (mode == 1) {
+					report << "\t" << "&q "<< curstr << " [what is?] [how is used?] [why do we have to?] [which ones?] [the idea of?] [advantage or disad.?] [formula? proof?]" << endl; // for some basic conceptual question 
+					std::cout << "t: " + get_current_date_time() + ": " << " &q " << curstr.substr(0, 50) << "..." << 
+						" [what is?] [how is used?] [why do we have to?] [which ones?] [advantage or disad.?] [formula? proof?]" <<  std::endl;
+				}
+				else if (mode == 2) {
+					report << "\t" << "&t " << curstr << " [imp.] [paper reading] [+further reading!]" << endl; // for some basic conceptual question 
+					std::cout << "t: " + get_current_date_time() + ": " << "&t imp. " << curstr.substr(0, 50) << "..." << 
+						" [imp.] [paper reading] [+further reading!]" << std::endl;
+				}
+				logger << "\t" << get_current_date_time() << " copying:" << curstr.substr(0, 50) << "..." << endl;
+				laststr = curstr;
+			}
+			Sleep(50);
+		}
+		if ((GetAsyncKeyState('Q') & 0x8000)
+			|| (GetAsyncKeyState('T') & 0x8000)
+			|| (GetAsyncKeyState('H') & 0x8000)
+			|| (GetAsyncKeyState('P') & 0x8000)) // for detail questions 
+		{
+			Beep(400, 500);
+			char s[200];
+			cout << "&";
+			cin.getline(s, 200);
+			cout << "recorded! please continue:\n";
+			report << "\t" << "&" << s << endl;
+			logger << "\t" << get_current_date_time() << " noting:" << s << "..." << endl;
+		}
+
+		if (GetAsyncKeyState('X') & 0x8000) {
+			cout << "please input the command (as connected string):";
+			string cmd;
+			cin >> cmd;
+			if (cmd._Equal("xq")) { mode = 1; cout << "you have changed to question mode!" << endl; }
+			if (cmd._Equal("xd")) { mode = 0; cout << "you have changed to description mode!" << endl; }
+			if (cmd._Equal("xt")) { mode = 2; cout << "you have changed to task mode!" << endl; }
+			if (cmd._Equal("xe"))
+				return 0;
+			if (cmd._Equal("xti"))
+				cout << "have been working for: (in min)" << 30 * number_of_half_hour + get_current_date_time_as_minutes() - startmin << endl;
+			cout << "continue:\n";
+			// do some operations
+		}
+		if ((get_current_date_time_as_minutes() - startmin) == 30) {
+			Beep(400, 1000);
+			Sleep(300);
+			Beep(400, 1000);
+			number_of_half_hour++;
+			startmin = get_current_date_time_as_minutes();
+		}
+	}
+
+
+
+}

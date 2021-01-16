@@ -1,0 +1,8 @@
+
+	all convert to utf8
+		https://blog.csdn.net/u012234115/article/details/83186386 
+		ok
+	if larger than 100 lines, create a new file 
+		ok
+	icon
+		ok

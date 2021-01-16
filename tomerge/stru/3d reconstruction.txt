@@ -1,0 +1,67 @@
+	
+	n-point pose estimation
+	previously unknown scenes
+	sparse point map it generates is  still not useful for much beyond providing localisation landmarks
+	sparse point map
+	localisation landmarks.
+	relying on sparse models for estimating the sensor motion
+	vive tracker 用slam就ok，sparse 点云
+		实际上应该是特征提取+比较一系列操作来位置估计，有个小例子
+	pp rgbd 只有30hz？
+	
+
+	urther demonstrated near-real-time depth map creation.
+	ability to keep track during very rapid motion, are illustrated extensively in our submitted video.
+
+	A further interesting direction is to perform automatic semantic segmentation over the volumetric representation that would enable adaptation of reconstruction quality for specific objects or tasks
+	very large exploratory sequences would lead to reconstructions with inevitable drift which would be apparent in the form of misalignments upon trajectory loop closures.
+	it would be possible to exploit sparsity in the TSDF using an adaptive grid representation.
+	automatic semantic segmentation over the volumetric representation
+	&?
+	Nearest Neighbor (NN) search with KD-tree
+	building KD-Trees of datasets with different topologies: R2, R3 (point clouds), SO(2) and SO(3) (2D and 3D rotation groups).
+	KD-tree look-up with kdd_search() and radius_search(): pointcloud_kdd_radius.cpp
+	What can nanoflann do?
+	Only the C++ interface exists: there is no support for C, MATLAB or Python.
+	Use other distance metrics apart from L1, L2, SO2 and SO3.
+	Approximate Nearest Neighbor Searching
+	a set of data points in d-dimensional space is given
+	given any query point q, the nearest or generally k nearest points of P to q can be reported efficiently. 
+	The distance between two points can be defined in many ways. ANN assumes that distances are measured using any class of distance functions called Minkowski metrics. 
+	Euclidean distance, Manhattan distance, and max distance.
+	quite efficiently for point sets ranging in size from thousands to hundreds of thousands
+	in dimensions as high as 20
+	kd-trees and box-decomposition trees, and employs a couple of different search strategies.
+	test programs for measuring the quality of performance of ANN
+	visualizing the structure of the geometric data structures.
+	Few methods seem to be significantly better than a brute-force computation of all distances. 
+	allowing the user to control the tradeoff between accuracy and running time.
+	Alongside mapping and tracking work using passive cameras, a line of research has continued using active laser and depth imaging sensors in the fields of robotics and graphics
+	rather than feature extraction and matching.
+	correspondences between scans
+	preferred algorithm when surface normal measurements are available
+	The process of obtaining the closest point correspondences is expensive;
+	full 6DOF scan alignment
+	scan alignment
+	ICP is used to estimate relative robot motion between consecutive poses
+	Some SLAM algorithms have also made use of depth data alignment and ICP
+	overlapping scans
+	arbitrary genus surface representation with orientation information
+	(as is the case in robotics and augmented reality)
+	free space as positive values
+	 (possibly) occupied space with a similarly negative value
+	 describe the components that make up our system
+	An advantage of the SDF over basic probabilistic occupancy grids
+	Given a SDF representation two main approaches to obtaining a view (rendering) of the surface exist
+	One option is to extract the connected surfaces using a marching cubes type algorithm
+	 Alternatively the surface can be directly raycast, avoiding the need to visit areas of the function that are outside the desired view frustum
+	SDF representation
+	&q how to render a sdf representation?
+	This is attractive due to the scene complexity-independent nature of the algorithm
+	a factor that is becoming increasingly important as the requirement for real-time photo-realistic rendering increases
+	signed distance function (SDF)
+	 Occupancy mapping
+	real-time frame-to-frame ICP implementation using the point-plane metric
+	combined a real-time frame-to-frame ICP implementation using the point-plane metric and projective data association together with a point based occupancy averaging and splat rendering of the aligned scans to demonstrate the first live reconstruction results of small models
+	The system was able to fuse depth images from the range finder for rendering purposes at rates up to 10Hz
+	��������һ�۽űߵ���̨Kinect2.�� ��Ŀ

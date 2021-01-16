@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+	同步定位与地图构建了解
+	业界公认视觉领域空间定位技术的前沿方向
+	未知环境
+	SLAM通常要被剪裁至适应可获得的资源，于是可以看出它的目标不是完美，
+	2D-Slam算法HectorSLAM ，Gmapping， KartoSLAM， CoreSLAM， LagoSLAM
+=======
+	Kinect fusion算法发布于2011年，Izadi大神团队研发
+	表面预测。通过raycasting方法对TSDF进行采样，计算出surface和normal。
+	&t
+	姿势预测。通过借助前一帧的表面信息{v, n}与当前帧的顶点和法线来进行alignment的计算，主要是通过使用point to plane ICP。
+	Kinect的分辨率和噪音真的是个坑。。。RGBD相机的质量还是和价格成正比的，不过毕竟Kinect更注重的是motion tracking所以也只能表示理解
+	Kinect的分辨率和噪音
+	微软现在做重建的组都没有再用Kinect的了
+	噪音
+	https://graphics.stanford.edu/papers/volrange/volrange.pdf
+	通过back project的方法来获得在camera space下的三维点
+	Kinect fusion算法使用了multi-scale方法，对每个深度图进行了三层缩放，每层的分辨率是位于下一层的一半
+	什么是SDF，什么是TSDF？
+	物体表面TSDF为0，大于0表示在物体表面前，小于0表示在表面后。
+	除了每个空间位置保存有TSDF值，同时也保存一个权重值w，目的是为了衡量此位置TSDF值的可靠度
+	https://zhuanlan.zhihu.com/p/142394787
+	https://zhuanlan.zhihu.com/p/141861866
+	对于虚拟影视作品和真实电影作品的要求是一样的，即相机的运动需要遵循一定的规律性，并符合电影拍摄审美的固定要求。
+	导演在拍摄时更多地是通过临场发挥，而不是对规则死记硬背。
+	给定的样例视频(右)中提取出相机行为与演员行为之间的关系
+	将该关系用于新场景(左)的拍摄，使得新场景拍摄的效果与样例视频相似
+	镜头语言具有很强的语义性，且很难进行归纳总结，因此，我们提出通过样例视频来对期望的拍摄方法进行控制
+	https://www.zhihu.com/question/31864290
+>>>>>>> cbb53e9ee118637e5603cc52793a02c9b20cdd40

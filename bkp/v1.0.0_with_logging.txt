@@ -1,0 +1,164 @@
+
+
+
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <fstream>
+#include <windows.h>
+#include <ctime>
+#include <algorithm>
+using namespace std;
+
+class RaiiClipboard
+{
+public:
+	RaiiClipboard()
+	{
+		if (!OpenClipboard(nullptr))
+			throw runtime_error("Can't open clipboard.");
+		// ... or define some custom exception class for clipboard errors.
+	}
+
+	~RaiiClipboard()
+	{
+		CloseClipboard();
+	}
+
+	// Ban copy   
+private:
+	RaiiClipboard(const RaiiClipboard&);
+	RaiiClipboard& operator=(const RaiiClipboard&);
+};
+
+class RaiiTextGlobalLock
+{
+public:
+	explicit RaiiTextGlobalLock(HANDLE hData)
+		: m_hData(hData)
+	{
+		m_psz = static_cast<const char*>(GlobalLock(m_hData));
+		if (!m_psz)
+			throw runtime_error("Can't acquire lock on clipboard text.");
+	}
+
+	~RaiiTextGlobalLock()
+	{
+		GlobalUnlock(m_hData);
+	}
+
+	const char* Get() const
+	{
+		return m_psz;
+	}
+
+private:
+	HANDLE m_hData;
+	const char* m_psz;
+
+	// Ban copy
+	RaiiTextGlobalLock(const RaiiTextGlobalLock&);
+	RaiiTextGlobalLock& operator=(const RaiiTextGlobalLock&);
+};
+
+std::string currentDateTime() {
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	int Year = timeinfo->tm_year;
+	int Month = timeinfo->tm_mon;
+	int Day = timeinfo->tm_mday;
+	int Hour = timeinfo->tm_hour;
+	int Min = timeinfo->tm_min;
+	int Sec = timeinfo->tm_sec;
+
+	return to_string(1900 + Year) + "." + to_string(1 + Month) + "." + to_string(Day) + ":"
+		+ to_string(Hour) + "h" + 
+		to_string(Min) + "m" + 
+		to_string(Sec) + "s";
+}
+
+
+
+string GetClipboardText()
+{
+	RaiiClipboard clipboard;
+
+	HANDLE hData = nullptr;
+	while (hData == nullptr)
+		hData = GetClipboardData(CF_TEXT);
+
+	RaiiTextGlobalLock textGlobalLock(hData);
+	string text(textGlobalLock.Get());
+
+	return text;
+}
+void ReplaceStringInPlace(std::string& subject, const std::string& search,
+	const std::string& replace) {
+	size_t pos = 0;
+	while ((pos = subject.find(search, pos)) != std::string::npos) {
+		subject.replace(pos, search.length(), replace);
+		pos += replace.length();
+	}
+}
+
+#include <algorithm>
+int main(int argc, char** argv)
+{
+	static const int kExitOk = 0;
+	if (argc < 2)
+		std::cout << "a file name needed! ";
+	ofstream report;
+	report.open(std::string(argv[1]), std::ofstream::out | std::ofstream::app);
+	ofstream logger;
+	logger.open(std::string("log.txt"), std::ofstream::out | std::ofstream::app);
+	string laststr = GetClipboardText();
+	ReplaceStringInPlace(laststr, "\r\n", " ");
+	std::cout << currentDateTime() << std::endl;
+	std::cout << "press ctrl-c, strings will be stored automatically!" << std::endl;
+	string curstr;
+	int mode = 0;
+	while (1) {
+		if (!GetClipboardText().empty())
+		{
+			curstr = GetClipboardText();
+			ReplaceStringInPlace(curstr, "\r\n", " ");
+			if (curstr != laststr) {
+				Beep(528, 500);
+				report << "\t" << curstr << endl;
+				logger << "\t" << currentDateTime() << " copying:" << curstr.substr(0, 50) << "..." << endl;
+				std::cout << "t: " + currentDateTime() + ": " << curstr.substr(0, 50) << "..." << std::endl;
+				laststr = curstr;
+			}
+			Sleep(50);
+		}
+		if ((GetAsyncKeyState('Q') & 0x8000)
+			|| (GetAsyncKeyState('T') & 0x8000)
+			|| (GetAsyncKeyState('H') & 0x8000)
+			|| (GetAsyncKeyState('P') & 0x8000))
+		{
+			Beep(400, 500);
+			char s[200];
+			cout << "&";
+			cin.getline(s, 200);
+			cout << "recorded! please continue:\n";
+			report << "\t" << "&" << s << endl;
+			logger << "\t" << currentDateTime() << " noting:" << s << "..." << endl;
+		}
+
+		if (GetAsyncKeyState('X') & 0x8000) {
+			cout << "please input the command (as connected string):";
+			string cmd;
+			cin >> cmd;
+			if (cmd._Equal("exit"))
+				return 0;
+			cout << "continue:\n";
+			// do some operations
+		}
+	}
+
+
+
+}

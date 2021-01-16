@@ -1,0 +1,115 @@
+	
+	
+	ÓÎÏ·½Å±¾
+		±ê×¼¿â£ºEncoding¡¢BitConverter¡¢Uri¡¢File¡¢DateTime¡¢Format µÈµÈµÈµÈÒ»Ó¦¾ãÈ«£¬Ïà±ÈÖ®ÏÂ C++ ±ê×¼¿â²Ğ·Ï
+		ÎªºÎÏÖÔÚµÄÓÎÏ·¿ª·¢ĞèÒªÊ¹ÓÃÓÎÏ·½Å±¾Õâ¸ö»°Ìâ
+		ĞèÒªÊ¹ÓÃC/C++ÕâÑùµÄÓïÑÔ¾¡Á¿Ñ¹Õ¥Ó²¼şµÄĞÔÄÜ
+		Ëæ×ÅÊ±¼äµÄÍÆÒÆ£¬Ó²¼şË®Æ½ÖğÄêÌáÉı£¬Ñ¹Õ¥Ó²¼şĞÔÄÜµÄĞèÇóÒÑ¾­²»ÔÙÆÈÇĞ¡£Ïà·´£¬´ËÊ±ÍøÓÎµÄĞËÆğÈ´¶Ô¿ª·¢ËÙ¶È¡¢°æ±¾¸üµüÌá³öÁË¸ü¸ßµÄÒªÇó
+		ËùÒÔ¿ª·¢ Ğ§ÂÊ²¢²»¸ßĞ§£¬ÇÒÍ¶×Ê¡¢¾Ş´ó·çÏÕºÜ¸ßµÄC/C++±ã²»ÔÙÊÊÓ¦ÊĞ³¡µÄĞèÇóÁË
+		Õâ¸ü¼Óµ¼ÖÂÁËÓÅĞãµÄC/C++³ÌĞòÔ±ËùÕ¼±ÈÀıÔ½À´Ô½Ğ¡¡£¶øÍøÓÎÊĞ³¡µÄ²»¶ÏÀ©´ó£¬¶ÔÈË²ÅµÄĞèÇóÒ²Ô½À´Ô½´ó£¬Õâ¾ÍÔì³ÉÁË ´óÁ¿µÄÈË²Å¿ÕÈ±£¬Ò²¾Í·´¹ıÀ´Ìá¸ßÁËÊ¹ÓÃC/C++¿ª·¢ÓÎÏ·µÄ³É±¾
+		¶øÓÉÓÚC/C++ÊÇÃÅÈëÃÅÈİÒ×½ø½×ÄÑµÄÓïÑÔ£¬Æä¸ß¼¶ÌØĞÔºÍ¸ß¶ÈÁé»îĞÔ´øÀ´µÄ¸ß·çÏÕÒ²ÊÇÃ¿ ¸öÏîÄ¿Ê¹ÓÃC/C++½øĞĞ¿ª·¢Ê±Ëù²»µÃ²»¿¼ÂÇµÄÎÊÌâ¡£
+		ÓÎÏ·½Å±¾µÄ³öÏÖ£¬²»½ö½â¾öÁËÓÉÓÚC/C++ÄÑÒÔ¾«Í¨¶ø´øÀ´µÄ¿ª·¢Ğ§ÂÊÎÊÌâ£¬¶øÇÒ»¹½µµÍÁËÊ¹ÓÃC/C++½øĞĞ¿ª·¢µÄÏîÄ¿·çÏÕºÍ³É±¾
+		Ò×ÓÚÑ§Ï°£¬´úÂë·½±ãÎ¬»¤¡£ÊÊºÏ¿ìËÙ¿ª·¢¡£
+		¿ª·¢ËÙ¶È¿ì£¬ÕâĞ©¶¼ÊÇ½µµÍ³É±¾µÄ·½·¨¡£
+		Unity3DÔÚÄÚµÄÖÚ¶àÓÎÏ·ÒıÇæ£¬¶¼Ìá¹©ÁË½Å±¾½Ó¿Ú£¬ÈÃ¿ª·¢ÕßÔÚ¿ª·¢ÏîÄ¿Ê±ÄÜ¹»°ÚÍÑC/C++
+		Unity3D±¾ÉíÊÇÓÃC/C++Ğ´µÄ
+		* ±äÏà½µµÍÁËÓÎÏ·¿ª·¢µÄÃÅ¼÷£¬ÎüÒıÁËºÜ¶à¶ÀÁ¢¿ª·¢ÕßºÍÓÎÏ·ÖÆ×÷°®ºÃÕß¡£
+		&t cgv may not need scripting lan. beacause that we need use c++ to achieve a higher effeciency 
+		½Å±¾ÊÇÎªÁË·½±ã¿ª·¢£¬µ«ÊÇÆäÊµ²»Ò»¶¨·ÇÒªÕÛÌÚ½Å±¾£¬µ½ÖĞÍ¾ÔÙËµ£¡ 
+		½Å±¾ÓĞ¹ØµÄ¶¼ÊÇÔÚ´´Ôì¸ü´óµÄ¹Ø×¢¶ÈÓëÊĞ³¡£¬µ«ÊÇ¶ÔÓÚÂÛÎÄÆäÊµ°ïÖú²¢²»´ó£¬³ı·ÇÓĞÒ»ÖÖ½Å±¾ÓïÑÔ¿ÉÒÔ¿ìËÙ¹¹½¨
+	¼ÓÃÜ
+		Êı×ÖÇ©Ãû¡¢ĞÅÏ¢¼ÓÃÜ ÊÇÇ°ºó¶Ë¿ª·¢¶¼¾­³£ĞèÒªÊ¹ÓÃµ½µÄ¼¼Êõ
+		ÓÃ»§µÇÈë¡¢½»Ò×¡¢ĞÅÏ¢Í¨Ñ¶¡¢oauth µÈµÈ
+		ÆäÖĞ¶Ô³Æ¼ÓÃÜËã·¨µÄ¼ÓÃÜÓë½âÃÜ ÃÜÔ¿ÏàÍ¬
+		·Ç¶Ô³Æ¼ÓÃÜËã·¨µÄ¼ÓÃÜÃÜÔ¿Óë½âÃÜ ÃÜÔ¿²»Í¬
+		¶Ô³Æ¼ÓÃÜ Ëã·¨Ö÷ÒªÓĞ DES¡¢3DES¡¢AES µÈ£¬³£¼ûµÄ ·Ç¶Ô³ÆËã·¨ Ö÷ÒªÓĞ RSA¡¢DSA µÈ
+		É¢ÁĞËã·¨ Ö÷ÒªÓĞ SHA-1¡¢MD5 µÈ¡£
+		Êı¾İ·¢ËÍ·½ ½« Ã÷ÎÄ (Ô­Ê¼Êı¾İ) ºÍ ¼ÓÃÜÃÜÔ¿ Ò»Æğ¾­¹ıÌØÊâ ¼ÓÃÜ´¦Àí£¬Éú³É¸´ÔÓµÄ ¼ÓÃÜÃÜÎÄ ½øĞĞ·¢ËÍ¡£
+		ÊÕµ½ÃÜÎÄºó£¬ÈôÏë¶ÁÈ¡Ô­Êı¾İ£¬ÔòĞèÒªÊ¹ÓÃ ¼ÓÃÜÊ¹ÓÃµÄÃÜÔ¿ ¼°ÏàÍ¬Ëã·¨µÄ ÄæËã·¨ ¶Ô¼ÓÃÜµÄÃÜÎÄ½øĞĞ½âÃÜ£¬²ÅÄÜÊ¹Æä»Ö¸´³É ¿É¶ÁÃ÷ÎÄ¡£
+		·Ç¶Ô³Æ¼ÓÃÜËã·¨£¬ÓÖ³ÆÎª ¹«¿ªÃÜÔ¿¼ÓÃÜËã·¨
+		Èç¹ûÊ¹ÓÃ Ë½Ô¿ ¶ÔÊı¾İ ½øĞĞ¼ÓÃÜ£¬Ö»ÓĞÓÃ¶ÔÓ¦µÄ ¹«Ô¿ ²ÅÄÜ ½øĞĞ½âÃÜ¡£
+		&t
+		githubÉÏ´«µÄÊ±ºòÊÇË½Ô¿¼ÓÃÜ¹«Ô¿½âÃÜ
+		ÎŞÂÛÊÇ¶à³¤µÄÊäÈë£¬MD5 ¶¼»áÊä³ö³¤¶ÈÎª 128bits µÄÒ»¸ö´® (Í¨³£ÓÃ 16 ½øÖÆ ±íÊ¾Îª 32 ¸ö×Ö·û)¡£
+		ÕªÒªËã·¨
+		SHA1 ÊÇºÍ MD5 Ò»ÑùÁ÷ĞĞµÄ ÏûÏ¢ÕªÒªËã·¨£¬È»¶ø SHA1 ±È MD5 µÄ °²È«ĞÔ¸üÇ¿
+		»ùÓÚ MD5¡¢SHA1 µÄĞÅÏ¢ÕªÒªÌØĞÔÒÔ¼° ²»¿ÉÄæ (Ò»°ã¶øÑÔ)£¬¿ÉÒÔ±»Ó¦ÓÃÔÚ¼ì²é ÎÄ¼şÍêÕûĞÔ ÒÔ¼° Êı×ÖÇ©Ãû µÈ³¡¾°
+		HMAC ÊÇÃÜÔ¿Ïà¹ØµÄ ¹şÏ£ÔËËãÏûÏ¢ÈÏÖ¤Âë£¨Hash-based Message Authentication Code£©£¬HMAC ÔËËãÀûÓÃ ¹şÏ£Ëã·¨ (MD5¡¢SHA1 µÈ)£¬ÒÔ Ò»¸öÃÜÔ¿ ºÍ Ò»¸öÏûÏ¢ ÎªÊäÈë£¬Éú³ÉÒ»¸ö ÏûÏ¢ÕªÒª ×÷Îª Êä³ö
+		https://github.com/dfranx/PluginShadertoy/tree/3f24ca4060492267304f9f778051e3995da1c5e0
+		https://github.com/BaderEddineOuaich/Enigma
+		¼×·½Éú³ÉÒ»¶ÔÃÜÔ¿²¢½«¹«Ô¿¹«¿ª£¬ĞèÒªÏò¼×·½·¢ËÍĞÅÏ¢µÄÆäËû½ÇÉ«(ÒÒ·½)Ê¹ÓÃ¸ÃÃÜÔ¿(¼×·½µÄ¹«Ô¿)¶Ô»úÃÜĞÅÏ¢½øĞĞ¼ÓÃÜºóÔÙ·¢ËÍ¸ø¼×·½£»¼×·½ÔÙÓÃ×Ô¼ºË½Ô¿¶Ô¼ÓÃÜºóµÄĞÅÏ¢½øĞĞ½âÃÜ
+		¼×·½ÏëÒª»Ø¸´ÒÒ·½Ê±ÕıºÃÏà·´£¬Ê¹ÓÃÒÒ·½µÄ¹«Ô¿¶ÔÊı¾İ½øĞĞ¼ÓÃÜ£¬Í¬Àí£¬ÒÒ·½Ê¹ÓÃ×Ô¼ºµÄË½Ô¿À´½øĞĞ½âÃÜ¡£
+		RSA¡¢Elgamal¡¢±³°üËã·¨¡¢Rabin¡¢D-H¡¢ECC£¨ÍÖÔ²ÇúÏß¼ÓÃÜËã·¨£©¡£
+		X.509Êı×ÖÖ¤Êé
+		·Ç¶Ô³Æ¼ÓÃÜËã·¨±È¶Ô³Æ¼ÓÃÜËã·¨ÂıÊıÇ§±¶£¬µ«ÔÚ±£»¤Í¨ĞÅ°²È«·½Ãæ£¬·Ç¶Ô³Æ¼ÓÃÜËã·¨È´¾ßÓĞ¶Ô³ÆÃÜÂëÄÑÒÔÆó¼°µÄÓÅÊÆ¡£
+		Functional Encryption
+		fuzzy-IBEÒÔ¼°ABE£¬¿ÉÒÔÊµÏÖÒ»¼Ó¶à½â£¨Ò»·İÃÜÎÄ±»¶à¸ö²»Í¬µÄË½Ô¿½âÃÜ£©£¬Ò²¿ÉÒÔ¶à¼ÓÒ»½â£¨¶à¸ö²»Í¬¹«Ô¿¼ÓÃÜµÄ²»Í¬ÃÜÎÄ¿ÉÒÔ±»Í¬Ò»¸öË½Ô¿½âÃÜ£©
+		¶Ô±ÈAES µÄCBCÄ£Ê½ÄÇÒ²ÊÇ¸ù¾İÃ÷ÎÄĞÅÏ¢µÄ´óĞ¡¼Ó½âÃÜËÙ¶È³ÉÏßĞÔÔö³¤¡£
+		ËùÒÔ¼ÓÃÜ»ò½âÃÜ±ØÈ»»áÓĞÒ»±ßºÜÂı
+		·Ç¶Ô³Æ¼ÓÃÜÊÇ¹¹ÔìÄÑÒÔ½â¾öµÄÊıÑ§ÎÊÌâÀ´±£Ö¤°²È«ĞÔµÄ
+		±à³Ì¸Ä½øÔ­RSAËã·¨£¬ÔÚÔËËãËÙÂÊÉÏÓÅ»¯RSAËã·¨(×îºÃÓĞÇ°ºóÁ½¸ö³ÌĞòËÙÂÊµÄ¶Ô±È)
+	Ìì¿ÕºĞ
+		VRÕ¹Ìü
+		ºÜÃ÷ÏÔµÄ¿ÉÒÔ¿´µ½±ß½ç
+		ÖÆ×÷CubeMapĞèÒªÓÃµ½È«¾°Í¼£¬È«¾°Í¼ÓÃjpg¡¢bmp¡¢tgaµÈ¸ñÊ½µÄÍ¼¶¼¿ÉÒÔ
+		×îÊÊºÏ×öÈ«¾°Ğ§¹ûµÄÊÇHDRIÍ¼£¨È«³Æ ¸ß¶¯Ì¬·¶Î§Í¼Ïñ£©
+		Ö»ÓĞ¾É°æµÄUnity²ÅÓĞ£¬ÎÒÓÃµÄ2017°æ±¾µÄUnityµÄTexture TypeÖĞ²¢Ã»ÓĞCubeMapÕâ¸öÑ¡Ïî
+		µ¼Èëunityºó£¬½«ÆäTexture Type¸ÄÎªCubeMapµã»÷Applyºó¼´¿ÉÊ¹ÓÃ
+		³ıÁËÌì¿ÕºĞ£¬»¹ÓĞÌì¿Õñ·
+		ĞÎÏóÀ´Ëµ¾ÍÊÇÓÃÒ»¸ö°ëÇò¸ÇÔÚ³¡¾°ÉÏ
+	
+	Skeleton-Aware Networks for Motion Retargeting
+	AICFVE, Bejing Film Academy & Tel-Aviv University
+	An input motion sequence (orange skeletons) is retargeted to a target skeleton (rightmost, blue)
+	has different body proportions
+	different number of bones (marked in red).
+	deep learning framework for data-driven motion retargeting between skeletons
+	data-driven motion retargeting 
+	 have different structure, yet corresponding to homeomorphic graphs
+	o homeomorphic graphs.
+	without requiring any explicit pairing between the motions in the training set.
+	We leverage the fact that different homeomorphic skeletons
+	may be reduced to a common primal skeleton by a sequence of edge merging operations
+	which we refer to as skeletal pooling
+	our main technical contribution
+	 deep motion processing framework
+	embeds the motion into a common latent space
+	retargeting can be achieved simply by encoding to, and decoding from this latent space
+	To the best of our knowledge, our method is the first to perform retargeting between skeletons with differently sampled kinematic chains
+	without any paired examples.
+	Neural motion processing
+	• Computing methodologies
+	Additional Key Words and Phrases
+	Capturing the motion of humans is a fundamental task in motion analysis
+	Capturing the motion of humans
+	Motion capture (MoCap) system
+	require the performer to wear a set of markers
+	whose positions are sampled by magnetic or optical sensors,
+	yielding a temporal sequence of 3D skeleton poses.
+	the captured skeletons may differ in their structure and number of joints
+	captured motion from one articulated character to another
+	data-driven models
+	for various motion processing tasks
+	Deep neural networks, which revolutionized the state-of-the-art for many computer vision tasks
+	well suited for convolution and pooling operations.
+	skeletons of different characters exhibit irregular connectivity
+	Furthermore, the structure of a skeleton is typically hierarchical
+	they explicitly account for the skeleton structure
+	(hierarchy and joint adjacency). T
+	synthesis
+	compound
+	fusion
+	mixture
+	motion retargeting between skeletons that have the same set of end-effectors
+	same set of end-effectors
+	 Such skeletons may be represented by homeomorphic (topologically equivalent) graphs.
+	long-standing problem
+	 current approaches cannot automatically perform retargeting between skeletons that differ in their structure or the number of joints
+	Different domains contain skeletons with different structure, i.e., represented by different graphs
+	tackled
+	Gleicher et al. [1998] tackled character motion retargeting by formulating a spacetime optimization problem with kinematic constraints, and solving it for the entire motion sequence. L
+	first applies inverse kinematics (IK) at each frame to satisfy constraints
+	d then smooths the resulting motion by fitting multilevel B-spline curves. 
+	high-frequency details of the original motion are well preserved
+	canonical
+	instill a set of behaviors onto an arbitrary humanoid skeleton.

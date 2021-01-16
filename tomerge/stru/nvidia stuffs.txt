@@ -1,0 +1,38 @@
+	brief overview of each new extension
+	Turing brings hardware acceleration for raytracing through dedicated units called RT cores
+	dedicated units
+	The RT cores provide BVH traversal as well as ray-triangle intersection
+	exposed in Vulkan through a new ray-tracing pipeline, associated with a series of new shader stages
+	new shader stages
+	https://devblogs.nvidia.com/introduction-nvidia-rtx-directx-ray-tracing/
+	https://github.com/NVIDIAGameWorks/DxrTutorials
+	A GPU that supports DXR (Such as NVIDIA's Volta or Turing hardware)
+	&x
+	Direct就是直接的意思，而后边的X则代表了很多的意思，从这一点上可以看出DirectX的出现就是为了为众多软件提供直接服务的
+	我现在在学directX游戏编程，但是看到市面上还有很多更常用的游戏引擎，而且我也弄不清directX在真正的游戏开发中是否有用武之地以及他的具体用途是什么
+	微软为了更好的性能，开发出了一套“专门适配windows平台的OpenGL"，名为DirectX
+	苹果在今年也开发出了一套“专门适配Mac和iOS平台的OpenGL”，名为Metal 3D。
+	单纯用DirectX可以完成视觉上的反馈，如果自己再加上一些音乐音效播放的库，通过代码逻辑的迭代，便足以组装出一个游戏了
+	第一类，相当于颜料中的三原色，DirectX等图形库，OpenAL等音乐库，键盘、触摸屏或手柄的输入控制，他们是最基础的组成部分
+	第二类，相当于形形色色的颜料，如前面提到粒子系统、如精灵、视差层、地图刷等部件
+	第三类，相当于颜料盘、画笔等等，它用于辅助游戏的完成。例如事件分发系统、定时器系统等，可简化在编程过程中的代码逻辑。
+	游戏引擎是一套完整完善的游戏开发解决方案，而DirectX，是一个图形处理库，属于游戏引擎中的一部分。
+	许多原理，是光用游戏引擎难以了解到的。
+	&x
+	Vulkan是OpenGL 5.0，也就是OpenGL 4.5的继任者
+	OpenGL 4.5支持compute shader
+	中央（Khronos）已经决定了。
+	GL_NV_ray_tracing
+	Mesh shaders provide a new programmable geometry processing pipeline
+	This pipeline is built around two shader stages: the task shader and the mesh shader. I
+	This hardware feature allows applications to dynamically control the number of fragment shaders that will be launched in a particular area of the screen while rendering primitives,
+	Shading Rate Image
+	The GLSL and SPIR-V extensions also expose built-ins that allow fragment shaders to read the effective fragment size in pixels
+	gl_FragmentSizeNV
+	VK_NV_ray_tracing 
+	shader 
+	https://developer.nvidia.com/rtx/raytracing/vkray
+	Corner Sampled Image
+	Vulkan API: VK_NV_corner_sampled_image
+	This feature provides new GLSL and SPIR-V fragment shader built-in inputs that hold barycentric coordinates, and also allows fragment shaders to directly read raw per-vertex attribute values in order to perform barycentric interpolation manually.
+	Compute Shader Derivatives

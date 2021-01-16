@@ -1,0 +1,477 @@
+	
+	n-point pose estimation
+	previously unknown scenes
+	sparse point map it generates is  still not useful for much beyond providing localisation landmarks
+	sparse point map
+	localisation landmarks.
+	relying on sparse models for estimating the sensor motion
+	vive tracker ç”¨slamå°±okï¼Œsparse ç‚¹äº‘
+		å®é™…ä¸Šåº”è¯¥æ˜¯ç‰¹å¾æå–+æ¯”è¾ƒä¸€ç³»åˆ—æ“ä½œæ¥ä½ç½®ä¼°è®¡ï¼Œæœ‰ä¸ªå°ä¾‹å­
+	pp rgbd åªæœ‰30hzï¼Ÿ
+	
+
+	urther demonstrated near-real-time depth map creation.
+	ability to keep track during very rapid motion, are illustrated extensively in our submitted video.
+
+	A further interesting direction is to perform automatic semantic segmentation over the volumetric representation that would enable adaptation of reconstruction quality for specific objects or tasks
+	very large exploratory sequences would lead to reconstructions with inevitable drift which would be apparent in the form of misalignments upon trajectory loop closures.
+	it would be possible to exploit sparsity in the TSDF using an adaptive grid representation.
+	automatic semantic segmentation over the volumetric representation
+	&?
+	Nearest Neighbor (NN) search with KD-tree
+	building KD-Trees of datasets with different topologies: R2, R3 (point clouds), SO(2) and SO(3) (2D and 3D rotation groups).
+	KD-tree look-up with kdd_search() and radius_search(): pointcloud_kdd_radius.cpp
+	What can nanoflann do?
+	Only the C++ interface exists: there is no support for C, MATLAB or Python.
+	Use other distance metrics apart from L1, L2, SO2 and SO3.
+	Approximate Nearest Neighbor Searching
+	a set of data points in d-dimensional space is given
+	given any query point q, the nearest or generally k nearest points of P to q can be reported efficiently. 
+	The distance between two points can be defined in many ways. ANN assumes that distances are measured using any class of distance functions called Minkowski metrics. 
+	Euclidean distance, Manhattan distance, and max distance.
+	quite efficiently for point sets ranging in size from thousands to hundreds of thousands
+	in dimensions as high as 20
+	kd-trees and box-decomposition trees, and employs a couple of different search strategies.
+	test programs for measuring the quality of performance of ANN
+	visualizing the structure of the geometric data structures.
+	Few methods seem to be significantly better than a brute-force computation of all distances. 
+	allowing the user to control the tradeoff between accuracy and running time.
+	Alongside mapping and tracking work using passive cameras, a line of research has continued using active laser and depth imaging sensors in the fields of robotics and graphics
+	rather than feature extraction and matching.
+	correspondences between scans
+	preferred algorithm when surface normal measurements are available
+	The process of obtaining the closest point correspondences is expensive;
+	full 6DOF scan alignment
+	scan alignment
+	ICP is used to estimate relative robot motion between consecutive poses
+	Some SLAM algorithms have also made use of depth data alignment and ICP
+	overlapping scans
+	arbitrary genus surface representation with orientation information
+	(as is the case in robotics and augmented reality)
+	free space as positive values
+	 (possibly) occupied space with a similarly negative value
+	 describe the components that make up our system
+	An advantage of the SDF over basic probabilistic occupancy grids
+	Given a SDF representation two main approaches to obtaining a view (rendering) of the surface exist
+	One option is to extract the connected surfaces using a marching cubes type algorithm
+	 Alternatively the surface can be directly raycast, avoiding the need to visit areas of the function that are outside the desired view frustum
+	SDF representation
+	&q how to render a sdf representation?
+	This is attractive due to the scene complexity-independent nature of the algorithm
+	a factor that is becoming increasingly important as the requirement for real-time photo-realistic rendering increases
+	signed distance function (SDF)
+	 Occupancy mapping
+	real-time frame-to-frame ICP implementation using the point-plane metric
+	combined a real-time frame-to-frame ICP implementation using the point-plane metric and projective data association together with a point based occupancy averaging and splat rendering of the aligned scans to demonstrate the first live reconstruction results of small models
+	The system was able to fuse depth images from the range finder for rendering purposes at rates up to 10Hz
+	Dense Tracking and Mapping by Scan Alignment
+	Dense SLAM
+	 The final models were optimised off-line using
+	with substantial increases in computational power
+	 live volumetric SDF fusion
+	they suggest the possibility of
+	 such an accumulated global reconstruction for resolving ambiguities that occur with frame-to-frame ICP
+	The introduction of commercially available depth cameras has inspired other related real-time 3D reconstruction.
+	 commercially available depth cameras
+	the main focus of our work is on reconstruction of larger scale scenes from higher speed camera motions.
+	 3D version of the occupancy mapping approach
+	occupancy mapping approach
+	 estimated the live 3D motion of the sensor (1 ¨C 2Hz update) by obtaining relative frame alignment via ICP alignment between depth scans initialised by RGB feature matching.
+	revolutionise the fields of robotics and human-computer interaction
+	In this work we have taken a step towards bringing the ability to reconstruct and interact with a 3D environment to the masses.
+	always up-to-date surface representation fusing all registered data from previous scans using the truncated signed distance function; 
+	fully parallel algorithms for both tracking and mapping, taking full advantage of commodity GPGPU processing hardware.
+	BundleFusion: Real-time Globally Consistent 3D Reconstruction using On-the-fly Surface Re-integratio
+	scalability brings challenges of dri? in pose estimation
+	Approaches o?en require hours of o?ine processing to globally correct model errors.
+	(1) needing minutes to perform online correction, preventing true real-time use;
+	tracking failures
+	end-to-end reconstruction framework
+	Our framework leads to a comprehensive online scanning solution for large indoor  environments
+	scan an  entire room (or several spaces) in real-time, with instantaneous and  continual integration of the accumulated 3D model into the desired  application
+	Ìå»æÖÆµÄ¼ÓËÙ¼¼Êõ
+	CUDAÊµÏÖRay-Casting
+	3DÊı¾İ³¡µÄ¿ÉÊÓ»¯
+	Ò½Ñ§¿ÉÊÓ»¯
+	Á÷ÌåÁ¦Ñ§Ä£Äâ
+	ÌåÄ£ĞÍ¡¢ÌåÊı¾İ£¬¶ø´«Í³Í¼ĞÎÑ§µÄÊÇÍø¸ñÄ£ĞÍ¡ª¡ªÎÒÃÇ¿´µ½µÄÓÎÏ·ÈËÎï£¬ÆäÊµ¾ÍÊÇÔÚ½¨Á¢ºÃµÄ3DÍø¸ñÄ£ĞÍÉÏÌùÉÏÎÆÀí¼ÓÈë¹âÕÕ£¬ÊÇÎª¡°¿Õ¿Ç¡±Ò²£¡
+	3DÊı¾İ³¡µÄ¿ÉÊÓ»¯¼¼Êõ£¬¿ÉÒÔ·ÖÎªÃæ»æÖÆ£¨surface rendering£©ºÍÌå»æÖÆ£¨volume rendering
+	³éÈ¡³ö3DÊı¾İ³¡ÀïµÄÄ³¸öµÈÖµÃæ
+	Ãæ»æÖÆÊÇ´ÓÔ­Ê¼µÄ3DÄ£ĞÍÖĞ³éÈ¡³öÎÒÃÇ¸ĞĞËÈ¤µÄÄ³¸öÍø¸ñÄ£ĞÍ£¬¶øºöÂÔÁËÆäËûÊı¾İ¡£
+	Ìå»æÖÆ£¬»òÕß½ĞÖ±½ÓÌå»æÖÆ£¨DVR, Direct Volume Rendering£©
+	»¹¿ÉÒÔÍ¸¹ı±íÃæ£¨¸³ÓèÒ»¶¨µÄÍ¸Ã÷¶È£©¿´µ½ÀïÃæ
+	ÓĞÊéÃûÎª¡°Real-Time Volume Graphics¡±£¬¿ÉÒëÎª¡°ÊµÊ±ÌåÍ¼ĞÎÑ§¡±
+	rely on the same underlying physical models and therefore use identical, or at least very similar, rendering techniques
+	Õã´óµÄCAD&CG¹ú¼Òkey lab²»·¦Å£ÈË¡£¹úÍâÓĞÒ»´ó¶Ñ¾­µä¾Í²»ËµÁË¡£
+	rendering constructive solid geometry models
+	Volume ray casting, which processes volume data, must not be mistaken with ray casting in the sense used in ray tracing
+	doesn't stop at the surface but "pushes through" the object, sampling the object along the ray.
+	does not spawn secondary rays.
+	The technique of volume ray casting can be derived directly from the rendering equation.
+	the computation emanates from the output image and not the input volume data
+	as is the case with object-based techniques.
+	from the output image
+	The four basic steps of volume ray casting: (1) Ray Casting (2) Sampling (3) Shading (4) Compositing.
+	Along the part of the ray of sight that lies within the volume, equidistant sampling points or samples are selected
+	necessary to interpolate the values of the samples from its surrounding voxels 
+	trilinear interpolation
+	a gradient of illumination values is computed
+	For each sampling point
+	surface orientation and the location of the light source in the scene.
+	all sampling points have been shaded, they are composited along the ray of sight
+	This work flow direction ensures that masked parts of the volume do not affect the resulting pixel.
+	The front-to-back order could be more computationally efficient 
+	(increasing of distances between samples along ray is one of such speed/quality trade-offs).
+	speed/quality trade-offs
+	Multi-core CPUs, however, are a perfect fit for this technique, making them suitable for interactive ultra-high quality volumetric rendering.
+	volumetric ray casting
+	single-pass volumetric raycasting,
+	implemented in GLSL and C+
+	provide a basic skeleton for a visualiser that can be easily extended with a feature-rich GUI
+	Three simple examples of shaders are provided for isosurface rendering
+	https://vtk.org/wp-content/uploads/2015/04/file-formats.pdf
+	https://lorensen.github.io/VTKExamples/site/VTKFileFormats/#imagedata
+	https://public.kitware.com/pipermail/paraview/2003-January/date.html
+	Figure 3 provides an overview of our whole method in block form
+	integrated into the scene model maintained with a volumetric, truncated signed distance function (TSDF) representation
+	 raycasting the signed distance function into the estimated frame to provide a dense surface predictio
+	live depth map is aligned.
+	multi-scale ICP alignment between the predicted surface and current sensor measurement
+	Euclidean group
+	6DOF camera pose
+	&q hwo can we represent 6dof cam pose? 
+	http://www-graphics.stanford.edu/data/voldata/
+	https://github.com/franjaviersans/VRGLSL
+	camera calibration matrix
+	transforms points on the sensor plane into image pixels.
+	perspective projection
+	dot notation to denote homogeneous vectors
+	raycasting
+	&t
+	depth measurements
+	metric point measurement in the sensor frame of reference k
+	&q what is metric point measurement in the sensor frame of
+	&reference k
+	&p pp why multiply this? correct format?
+	dehomogenisation
+	image domain u
+	&t
+	&t
+	ÈçÖĞÖµÂË²¨£¬¸ßË¹ÂË²¨£¬Î¬ÄÉÂË²¨µÈµÈ¡£µ«ÕâĞ©½µÔë·½·¨ÈİÒ×Ä£ºıÍ¼Æ¬µÄ±ßÔµÏ¸½Ú£¬¶ÔÓÚ¸ßÆµÏ¸½ÚµÄ±£»¤Ğ§¹û²¢²»Ã÷ÏÔ
+	bilateral filterË«±ßÂË²¨Æ÷¿ÉÒÔºÜºÃµÄ±ßÔµ±£»¤£¬¼´¿ÉÒÔÔÚÈ¥ÔëµÄÍ¬Ê±£¬±£»¤Í¼ÏñµÄ±ßÔµÌØĞÔ
+	±ßÔµÌØĞÔ
+	·ÇÏßĞÔµÄÂË²¨·½·¨
+	½áºÏÍ¼ÏñµÄ¿Õ¼äÁÚ½ü¶ÈºÍÏñËØÖµÏàËÆ¶ÈµÄÒ»ÖÖÕÛÖÔ´¦Àí
+	Í¬Ê±¿¼ÂÇ¿ÕÓòĞÅÏ¢ºÍ»Ò¶ÈÏàËÆĞÔ
+	Ğ´³ÉÏòÁ¿µÄÔ­ÒòÊÇ£¬²Ù×÷µÄÓ°Ïñ²»ÏŞ¶¨ÊÇÖ»ÓĞµ¥Ò»Í¨µÀµÄ»Ò½×Ó°Ïñ£¬ËûÃÇÒ²¿ÉÒÔÊÇ¶àÍ¨µÀµÄ²ÊÉ«Ó°Ïñ
+	¹éÒ»»¯º¯Êı
+	Òª¶ÔÁÚ½üµÄËùÓĞµã½øĞĞ¼ÓÈ¨Æ½¾ù£¬ÒÔ´ïµ½Æ½»¬»¯µÄÄ¿µÄ
+	https://zh.wikipedia.org/wiki/%E9%9B%99%E9%82%8A%E6%BF%BE%E6%B3%A2%E5%99%A8
+	 ÕâÁ½¸öÊ½×Ó·Ö±ğ´ú±íÁË{\displaystyle {\vec {x}}}\vec{x}ºÍ{\displaystyle {\vec {\xi }}}{\displaystyle {\vec {\xi }}}ÔÚ¿Õ¼ä¼¸ºÎ¹ØÏµÉÏµÄ²îÒìºÍ¹â¶È/É«²Ê²îÒìÉÏµÄ²îÒì¡£ ÒÔÏÂ½«Õë¶ÔÕâÁ½¸öºËĞÄº¯Êı½øĞĞËµÃ÷
+	 cÔÚÑ¡ÔñÉÏÒ»¸öºÜºÃµÄÀı×ÓÊÇ¸ßË¹º¯Êı
+	¿Õ¼ä¼¸ºÎ¹ØÏµ
+	¹â¶È/É«²Ê²îÒì
+	ÂË²¨Æ÷º¯Êı
+	¶ÔÓÚ²ÊÉ«Ó°Ïñ¶øÑÔ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃLabÉ«²Ê¿Õ¼äÀ´ÇóµÃÁ½µãÖ®¼äµÄ¹â¶È²îÒì
+	https://en.wikipedia.org/wiki/Bilateral_filter
+	discontinuity preserved depth map with reduced noise
+	vertex map
+	sensor plane
+	&q what is pk 
+	 camera coordinate frame
+	 vertex map
+	a vertex validity mask:
+	valid vertex
+	 The bilateral filtered version of the depth map greatly increases the quality of the normal maps produced
+	normal maps produced
+	vertex and normal map pyramid
+	sub-sampled version
+	block averaging followed by sub-sampling to half the resolution
+	pyramid
+	&q how can we compute a depth map pyramid? 
+	vertex and normal map pyramid
+	 depth map level.
+	global frame vertex
+	&p no dot required?
+	&t camera model
+	fused incrementally into one single 3D reconstruction using the volumetric truncated signed distance function (TSDF)
+	one single 3D reconstruction
+	The result of averaging the SDF¡¯s of multiple 3D point clouds (or surface measurements) 
+	aligned into  a global frame is a global surface fusion.
+	values moving from the visible surface into free space, and negative and decreasing values on the non-visible side. T
+	TSDF allows us to represent arbitrary genus surfaces as zero crossings within the volume
+	zero crossings
+	arbitrary genus
+	&q how can we reconstract arbitry genus 
+	&q why use volumn based approach?
+	&q what is TSDF 
+	&t a pic from blog: understand why named as truncated"!
+	zero crossings
+	global TSDF
+	bijective mapping between  voxel/memory elements and the continuous TSDF representation
+	bijective mapping
+	Two components
+	&q which Two components are stored in one volume cell?
+	the true value lies within ¡À¦Ì of the measured value, 
+	&t
+	https://wlsdzyzl.top/2019/01/25/3D-Reconstruction%E2%80%94%E2%80%94TSDF-volume-reconstruction
+	¶ÔÓÚÉî¶ÈÍ¼£¬ÎÒÃÇĞèÒª¾­¹ıË«±ßÂË²¨À´½µÔë
+	²¢ÇÒ¼ÆËã·¨ÏòÁ¿
+	https://evolution-video.oss-cn-beijing.aliyuncs.com/images/tsdf3.png
+	ÊÀ½ç×ø±ê×ª»»µ½Ïà»ú×ø±ê
+	&p camera posi. is a 3d posi?
+	ÈëÉä½ÇÔ½´ó£¬´øÀ´µÄ½á¹ûÒ²Ïà¶Ô¸ü²»¿É¿¿£¬ÒòÎªºÜÃ÷ÏÔËü²»Ó¦¸ÃÊÇ¾àÀë±íÃæ×î½üµÄ¾àÀë
+	Ó¦¸Ã¸øÈëÉä½ÇĞ¡µÄÏà»úÎ»ÖÃ²É¼¯µ½µÄÖ¡ÂÊ¸ü´óµÄÈ¨ÖØ
+	Ò»¸öÌåËØµÄSDFÖµ£¬ÊÇËüµ½×î½üµÄ±íÃæµÄ¾àÀë
+	https://evolution-video.oss-cn-beijing.aliyuncs.com/images/tsdf5.png
+	½«ÔÚÊÓ×¶ÄÚµÄÌåËØÍ¶Ó°µ½ÏñËØ×ø±ê£¬È»ºóÓÃ¸ÃÏñËØ×ø±êµÄÉî¶ÈÖµ¼õÈ¥Õâ¸öÌåËØµÄÊµ¼ÊzÖµ
+	¼õÈ¥Õâ¸öÌåËØµÄÊµ¼ÊzÖµ
+	¿Õ¼ävoxelµÄsdfÖµ¿ÉÄÜ»á¸üĞÂµÄ¡£
+	¶øTSDF¾ÍÊÇ¹æ¶¨ÁËÒ»¸ö×îÔ¶¾àÀë¡£ÒòÎªÎÒÃÇÖªµÀ£¬ÈıÎ¬ÖØ½¨ÎÒÃÇ¹Ø×¢µÄÊÇÖØ½¨µÄ±íÃæ£¬Èç¹ûÒ»¸öÌåËØ¾àÀë±íÃæÌ«Ô¶£¬Ëü¶Ô±íÃæÖØ½¨²»»áÓĞÊ²Ã´Êµ¼Ê¹±Ï×
+	Òò´ËTSDF¹æ¶¨Ò»¸ö×îÔ¶¾àÀë£¬Èç¹û¾àÀë±ÈÕâ¸ö¸ü´ó£¬ËüµÄTSDFÖµ¾ÍÊÇÎŞĞ§µÄ£¬
+	zero-crossing£¬¾ÍÊÇ±íÃæËùÔÚµÄvoxel¡£ÎÒÃÇÒª×öµÄ¾ÍÊÇÕÒµ½Õâ¸öµØ·½
+	µ±È»ÓĞÊ±ºò¿ÉÄÜ²»»áÓĞÄÄ¸öµÄÌåËØ´óĞ¡Ö±½ÓÊÇ0,ÕâÊ±ºò¾ÍĞèÒª½øĞĞÈıÏßĞÔ²åÖµ£¨trilineal interpolation£©£¬ÕÒµ½±Æ½ü0µÄÄÄ¸öµØ·½
+	¾àÀë²Ù×÷ÖĞ£¬ÎÒÃÇÎªÁË¼ÓËÙ£¬¿ÉÄÜ»á¿ªÊ¼ÒÑÒ»¸ö±È½Ï´óµÄ²½³¤£¬ÕÒµ½ÁËzero-crossing£¬»»³É¸üĞ¡µÄ²½³¤£¬Ö±µ½µÃµ½ÒªÇóµÄ¾«¶È
+	µÃµ½Õâ¸öµãÖ®ºó£¬ÔÙÍ¬Ñù¸ù¾İÏßĞÔ²åÖµ£¬Ğ´Èëcolor£¨Êµ¼ÊÖĞcolor¿ÉÄÜÊÇ°üº¬ÔÚTSDF³¡ÖĞµÄ£¬ÒÔ¼°È¨ÖØ£©¡£
+	ÉÏÃæµÄËã·¨Ã»ÓĞ°üº¬¹âÏßºÍÒõÓ°µÄ²¿·Ö¡£
+	&h that is, shading
+	meshÉú³ÉÓë·¨ÏòÁ¿µÄÌáÈ¡
+	free space
+	scales the measurement along the pixel ray
+	&p pp what does this mean?
+	Non-visible points farther than ¦Ì from the surface are not measured
+	Otherwise the SDF represents the distance to the nearest surface point.
+	without which real-time computation is not possible for a reasonable size volume.
+	&t
+	ÓÚ¸ÃÎÊÌâÓĞ¸üÍ¨ÓÃµÄËã·¨, µ«ÊÇÍ¨ÓÃËã·¨Í¨³£»á±È¿ìËÙĞĞ½øËã·¨Âı.
+	ËÙ¶Èº¯Êı½öÒÀÀµÓÚÎ»ÖÃ, ÄÇÃ´Çó½â·½³Ì¼´¿ÉµÃµ½ÇúÏßµ½´ïÄ³µã{\displaystyle x}x µÄÊ±¼ä.
+	¿ìËÙĞĞ½øËã·¨ºÍ Dijkstra Ëã·¨Ë¼ÏëÏàËÆ£¬²»Í¬Ö®´¦ÔÚÓÚ Dijkstra Ëã·¨ÀûÓÃ½ÚµãÖ®¼äµÄÅ·Ê½¾àÀë½øĞĞ¸üĞÂ£¬¶ø FMM Ëã·¨ÀûÓÃÓÉ³Ìº¯·½³Ì»¯¼òµÃµ½µÄ½üËÆÆ«Î¢·Ö·½³Ì½øĞĞ¸üĞÂ
+	Ëü¼ÆËãÁ¿Ğ¡£¬Ò»°ãÖ»Òª¼ÆËã²»³¬¹ı NlogNN\text{log}NNlogN ´Î¡£ ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª °æÈ¨ÉùÃ÷£º±¾ÎÄÎªCSDN²©Ö÷¡¸lsecĞ¡Â½¡¹µÄÔ­´´ÎÄÕÂ£¬×ñÑ­CC 4.0 BY-SA°æÈ¨Ğ­Òé£¬×ªÔØÇë¸½ÉÏÔ­ÎÄ³ö´¦Á´½Ó¼°±¾ÉùÃ÷¡£ Ô­ÎÄÁ´½Ó£ºhttps://blog.csdn.net/lusongno1/article/details/88409735
+	&t
+	A solution to a boundary value problem is a solution to the differential equation which also satisfies the boundary conditions.
+	³Ìº¯·½³Ì£¨Eikonal equation) ÊÇÒ»¸ö·ÇÏßĞÔÆ«Î¢·Ö·½³Ì
+	The speed function is specified, and the time at which the contour crosses a point {\displaystyle x}x is obtained by solving the equation.
+	computing the true discrete SDF for a given set of point measurements
+	Èç¹ûÁãË®Æ½¼¯ÒÔËÙ¶ÈvÑØ×ÅÆä·¨ÏßÔË¶¯£¬ÕâÒ»ÔË¶¯¿ÉÒÔ±íÊ¾ÎªË®Æ½¼¯º¯ÊıµÄ¹şÃÜ¶Ù-ÑÅ¿É±È·½³Ì£¨Hamilton-Jacobi equation£©
+	ÕâÊÇÒ»¸öÆ«Î¢·Ö·½³Ì£¬²¢ÇÒ¿ÉÒÔÇóµÃÊıÖµ½â£¬ÀıÈç¿ÉÒÔÔÚµÑ¿¨¶ûÍø¸ñÉÏ²ÉÓÃÓĞÏŞ²î·Ö·¨.
+	ÎÒÖ»ĞèÒªÖ¸¶¨ÇúÏßÉÏµÄÃ¿Ò»¸öµãµÄÔË¶¯·½ÏòºÍËÙ¶È¾Í¿ÉÒÔÁË
+	ÎÒÃÇ»¹Ã»ÓĞÌá¼°µ½ÈÎºÎ ºÍ ¡°level -set¡± ÓĞ¹ØµÄ¶«Î÷£¬Í¼Ïñ·Ö¸îµÄµã×ÓÒÑ¾­À´ÁË
+	Í¼Ïñ·Ö¸îµÄ½á¹ûÊÇ£¬ÔÚÎÒÃÇÒª·Ö¸îµÄÍ¼ÏñÉÏ£¬ÎÒÃÇ»æÖÆÁËÒ»ÌõÇúÏß¡£ ÇúÏß°ü×¡ÁËÒ»Ğ©¶«Î÷£¬ÄÇ±»ÎÒÃÇËµ³ÉÊÇ·Ö¸î³öÀ´ÁËµÄ¶«Î÷¡£
+	Í¼Ïñ·Ö¸î£¬Èç¹ûÓÃÇúÏßÑİ±äµÄ·½·¨
+	´óÔ¼¾ÍÊÇÔÚÒª·Ö¸îµÄÍ¼Æ¬ÉÏ£¬ÏÈËæ±ã»æÖÆÒ»ÌõÇúÏß£¬È»ºóÈÃÕâÌõÇúÏßÑİ±ä³ÉÎÒÃÇÏëÒªµÄÇúÏß£¬·Ö¸î¾Í¸ã¶¨ÁË
+	ÇúÏßµÄÑİ±äµÄ»°£¬ÎÒÃÇÆäÊµÖ»ĞèÒª¿ØÖÆµÄÊÇÃ¿Ò»¸öµãÔÚÃ¿Ò»¸öÊ±¿ÌµÄËÙ¶È¶øÒÑ¡£ Í¼Ïñ·Ö¸î
+	Õë¶ÔÇúÏßÉÏµÄÃ¿Ò»¸öµã£¬¿¼²ìÆä¸Ç×¡µÄÍ¼Ïñ£¬Í¨¹ı´ËÀ´¾ö¶¨ÔÚÇúÏßÉÏµÄÕâ¸öµÄµãµÄÔË¶¯ËÙ¶È¶øÒÑ¡£
+	³õÊ¼ÇúÏß
+	Ñİ±äÕâ¸öÇúÏß¡£
+	³¯Íâ£¨arc length ·¨Ïß·½Ïò£©
+	¶ø´óĞ¡ÄØ£¬ÎÒ¾Í¸ù¾İÕâÌõÇúÏß¸Ç×¡µÄÍ¼ÏñÀ´È·¶¨
+	ÎÒÏ£Íûµ½¿ì½Ó½ü±ßÔµµÄÊ±ºò£¬ËÙ¶È¾ÍÂıÁË£¬ÉõÖÁÍ£ÁËÏÂÀ´£¬¶øÈç¹ûÇúÏßÉÏµÄÄÇ¸öµã²»¿¿½ü±ßÔµ£¬ÄÇÃ´ËÙ¶È¾ÍµÃ±È½Ï¿ì
+	Èç¹ûÌİ¶È±È½ÏĞ¡£¬ÄÇËµÃ÷Õâ¸öÊ±ºò£¬ÇúÏß»¹ÔÚ¶Ç×ÓÀïÃæ£¬ÎÒµÄËÙ¶È¾Í¿ÉÒÔ´óÒ»µã¡£
+	Èç¹ûÌİ¶È±È½Ï´ó£¬ÄÇÃ´ËµÃ÷Õâ¸öÊ±ºò£¬ÒÑ¾­½Ó½üÁË±ßÔµÁË£¬ÄÇÃ´ÎÒµÄÔË¶¯ËÙ¶È¾ÍÒªĞ¡Ò»µãÁË¡£
+	ÂÌÉ«µÄµãµÄÔË¶¯ËÙ¶È¾ÍºÜ´ó¡£
+	https://pic2.zhimg.com/80/fc71180a29cdeb654a0673321e4f9d83_1440w.jpg
+	ÂıÂıµØ£¬Õâ¸öÇúÏß¾ÍÌù½üÍ¼ÏñµÄÂÖÀªÁË¡£
+	ºËĞÄÔÚÓÚÈçºÎÍ¨¹ıÒª·Ö¸îµÄÍ¼Ïñ£¬È¥È·¶¨ÇúÏßÔË¶¯µÄËÙ¶È¡£
+	ÕæÕıµÄÍ¼Ïñ·Ö¸îµÄ·½·¨£¬ÊÇ ÇúÏßµÄÑİ±ä¡£
+	ÄÇ level-set ÊÇÊ²Ã´£¿ËüÊÇ ÇúÏßÑİ±äµÄ ÊµÏÖ·½·¨¡£
+	¶à³öÁËÀ¶É«µÄµã£¬Õâ¸öµã»¹ĞèÒª²åÖµ³öÀ´µÃµ½
+	ÊÇÁ½¸öµãºÍ³ÉÁËÒ»¸öÄØ£¿»¹ÊÇÃ¿Ò»¸öµã¶¼»¹ÓĞ×Ô¼ºµÄÔË¶¯¡£
+	ºìÉ«ÇúÏßºÜ¹â»¬£¬ÂıÂı³¯×ÅÀïÃæÔË¶¯£¬±äµÃÔ½À´Ô½¼âÁË¡£Õâ¸öÊ±ºòÓÖ²»ºÃÃèÊöµãµÄÔË¶¯ÁË¡£
+	¸Ä±äÇúÏßĞÎ×´µÄËÙ¶È·½ÏòÊÇ·¨Ïß·½ÏòµÄ£¬¶øÇĞÏß·½ÏòµÄËÙ¶ÈÊÇ²»¸Ä±äÇúÏßµÄĞÎ×´µÄ£¬ËùÒÔ£¬ÔÚÇúÏßµÄÑİ±äÖĞ£¬ËùÓĞµÄµã¶¼Ö»¿¼ÂÇÁËÆä·¢ÏÖ·½ÏòµÄËÙ¶È¡£
+	ËùÓĞµãµÄ£¨x£¬y£©×ø±êµÄ¼¯ºÏ£¨Í¼ÖĞºìÉ«µÄÎªÇúÏß£¬ÕâĞ©µãµÄz×ø±ê¾ùÎªÁã£©
+	ÄãÒ²¿ÉÒÔÈÆÒ»ÏÂ£¬Ğ´³É¼¯ºÏµÄĞÎÊ½£¬Ò²¾ÍÊÇËùÎ½µÄ level set£º
+	computing the true discrete SDF for a given set of point measurements
+	&p pp why fmm, or level set? t
+	&t try level set! fmm for image seg.
+	·ûºÅ¾àÀëº¯Êı
+	×îÍâÃæµÄº¯ÊıÓÃÓÚÊµÏÖtruncation
+	TSDF Öµ£¬
+	FrkÖ¸µÄ
+	È¨ÖØÖµw£¬Ä¿µÄÊÇÎªÁËºâÁ¿´ËÎ»ÖÃTSDFÖµµÄ¿É¿¿¶È¡£
+	truncated 
+	ÆäÖĞĞèÒª×¢ÒâµÄÊÇ¼ÆËãxÊÇĞèÒª¿¼ÂÇfloor²Ù×÷À´±ÜÃâ²»Á¬ĞøĞÔÇé¿ö³öÏÖ¡£
+	1/¦Ë converts the ray distance to p to a depth
+	& pp ??
+	performs the SDF truncation
+	 either side of the surface. 
+	at  least one non truncated voxel value
+	increased linearly with distance from the sensor center to support correct representation of noisier measurements
+	cos
+	associated pixel ray direction and the surface normal measurement
+	 in the local frame.
+	It has been shown that for points close to the surface, a correction can be applied by scaling the SDF by cos(¦È) 
+	converges towards an SDF with a pseudo-Euclidean metric
+	could be another surface point not on the ray associated
+	global fusion
+	average of all individual TSDFs computed for each depth map
+	over 9 million new point measurements are made per second).
+	Storing a weight Wk(p) with each value
+	global minimum
+	can be obtained incrementally as more data terms are added using a simple weighted running average
+	No update on the global TSDF is performed for values resulting from unmeasurable regions
+	&q why can we add incrementally? equ.11
+	proportional to the uncertainty of surface measurement
+	a moving average surface reconstruction can be obtained enabling reconstruction in scenes with dynamic object motion.
+	truncating the updated weight over some value
+	dynamic object motion.
+	We use 16 bits per component in S(p)
+	 raw depth measurements are used for TSDF fusion
+	bilateral filtered version used in the tracking component
+	The early filtering removes  desired high frequency structure and noise alike which would reduce the ability to reconstruct finer scale structures
+	&q why we do not use filtered version of depth map when updating FSDF val.? detail preserve!
+	Ray Casting the TSDF
+	 rendering the surface encoded in the zero level set
+	 Each pixel¡¯s corresponding ray
+	&q how can we represent it? 
+	marched starting from the minimum depth for the pixel and stopping when a zero crossing
+	Marching also stops if a ?ve to +ve back face is found
+	exiting the working volume
+	, both resulting in non surface measurement at the pixel u
+	gradient of the TSDF at p is orthogonal to the zero level set
+	surface normal
+	&h marching is faster than iter. all voxels! 
+	sophisticated implementations are required to achieve top performance on GPU hardware, without which real-time computation is not possible
+	&h for a marching, we alwayas start from a initial guess, and update its posi. based on some equ. esp. phy related 
+	&p is that true? fmm and level set 
+	numerical derivative of the SDF
+	isotropy given potentially arbitrary voxel resolutions
+	restricted to provide physically plausible measurement predictions
+	a min/max block acceleration structure
+	can be used to speed up marching through empty space
+	 However, due to continual updating of the TSDF (which would require a constant update to the min/max macro blocks)
+	simple ray skipping provides a more useful acceleration
+	simple ray skipping
+	a step ¦Ì must pass through at least one non-truncated +ve value
+	Marching steps can be seen to increase around the surface interface where the signed distance function has not been truncated.
+	white equals 480 increments and black 60
+	&h they used color representation to vis. the number of steps that required 
+	measuring the number of steps required for each pixel to intersect the surface relative to standard marching.
+	Higher quality intersections can be obtained by solving a ray/trilinear cell intersection
+	requires solving a cubic polynomial.
+	 As this is expensive we use a simple approximation
+	at points along the ray t and t + ?t from its starting point
+	at which the intersection occurs more precisely
+	&p why white? pic15
+	&p pic6 
+	the interpolation scheme described achieves high quality occlusion boundaries
+	estimating the current camera pose Tw,k
+	SE3
+	feature selection to improve speed by reducing the number of points
+	small motion  from one frame to the next
+	the fast projective data association algorithm
+	modern GPU  hardware enables a fully parrallelised processing pipeline
+	point-plane optimisation can use all of the  available surface measurements.
+	all of the data in a depth image
+	fast
+	fully parrallelised
+	data association
+	point-plane optimisation
+	projective data association
+	frame-toframe tracking
+	frame-to-frame and frame-model tracking.
+	obtained simply by setting
+	&p pp
+	reject grossly incorrect correspondences
+	threshold parameters
+	desired camera pose estimate
+	¿ÉÒÔ¿´×÷Ò»¸öÉ¸Ñ¡º¯Êı£¬
+	ÅÅ³ıµôÎó²î¹ıÓÚ´óµÄµã
+	¶Ô(9)Ê½½øĞĞ·ÇÏßĞÔÓÅ»¯£¨ÂÛÎÄÖĞÊ¹ÓÃµÄGauss-Newton·¨£©
+	https://www.cs.princeton.edu/~smr/papers/icpstability.pdf
+	we want to minimize the alignment error
+	rotation may be approximated as
+	alignment error may be written as
+	&p why can not use a weighted approach for pose estimation?  
+	Eigenvalue Analysis
+	The most obvious application of the above analysis is to evaluate the stability of aligning two meshes together
+	This involves computing the matrix C, summed over the entire region of overlap, and finding its eigenvalues.
+	which pairings to use for global registration
+	½áºÏµ±Ç°Ö¡µÄmeasured surface£¬Ö´ĞĞICPËã·¨£¬µÃµ½µ±Ç°Ö¡¶ÔÓ¦µÄÏà»úÎ»×Ë 
+	Ïà»úÎ»×Ë [¹«Ê½] £¬¾Í¿ÉÒÔ½«±¾Ö¡µÄÉî¶ÈÊı¾İÈÚºÏµ½´ËÇ°maintainµÄglobal TSDF
+	https://blog.csdn.net/TracelessLe/article/details/59693743
+	(16)
+	&t derive 
+	The projective data association algorithm produces the set of vertex correspondences
+	and testing
+	&q the selection of corresp. x2 
+	 minimising the energy of a linearised version of
+	Using the small angle assumption for an incremental transform:
+	bilateral filtering
+	?(u) = null
+	&q why use bilateral filtering 
+	formed with the skew-symmetric matrix
+	skew-symmetric matrix
+	skew-symmetric (or antisymmetric or antimetric[1]) matrix is a square matrix whose transpose equals its negative
+	whose transpose equals its negative.
+	skew-symmetric
+	The matrix
+	Example
+	https://en.wikipedia.org/wiki/Skew-symmetric_matrix
+	each summand of the normal system is computed in parallel.
+	GPU implementation
+	The symmetry of the system enables operations and memory to be saved and the final sum is obtained using a parallel tree-based reduction
+	 parallel tree-based reduction
+	obtain the upper triangular component of the symmetric system.
+	efficiently computed using a Cholesky decomposition on the host (CPU) and coerced back into an SE3 transform
+	The data association and pose minimisation is embedded into a coarse to fine framework using the bottom 3 levels of a vertex and normal map pyramid.
+	After all iterations are completed we fix the final camera pose
+	Stability and validity check for transformation update
+	projective data association can be broken
+	&q what happends if move too fast? in detail 
+	if the currently observable surface geometry does not provide point-plane pairs that constrain the full 6DOF of the linear system then an arbitrary solution within the remaining free DOFs can be obtained.
+	If either test fails, the system is placed into re-localisation mode
+	re-localisation mode
+	the sensor loses track
+	 the last known sensor pose is used to provide a surface prediction
+	conducted a number of experiments to investigate the performance 
+	keep track during very rapid motion
+	local loop closures without requiring explicit  global joint-estimation
+	scale gracefully with different processing and memory  resources
+	resolution of 2563 voxels
+	 fused together
+	obtained by the full framemodel ICP method
+	Frames 1...N
+	framemodel ICP
+	frame 1 and frame N were captured from almost the same place.
+	Circular motion experiment to highlight the SLAM characteristics of our system
+	sensor orbits a table
+	every 4th of N frames is shown
+	highlighting  reconstruction quality with normal mapping
+	Rapid accumulation of errors results in the non-circular trajectory and poor reconstruction is apparent (though see later  Figure 11 where frame-skipping is shown to improve this).
+	our full frame-to-model tracking approach.
+	with the loop two-thirds complete
+	MN different images.
+	integrating every frame of data is the ability to rapidly  assimilate as many measurements of the surfaces as are possible
+	system without an explicit global optimisation,
+	A natural extension to a scan matching (frame-to-frame) ICP  based SLAM system is to drop keyframes and perform tracking  relative to the keyframe.
+	&q why this 
+	&h we have too much accu. error/ proporgation 
+	frame
+	&q frame to model??
+	64 times less GPU memory is used by reducing the reconstruction resolution to 643
+	 reconstruction resolution
+	the frames are extremely closely registered  after four passes.
+	 But the frame-model tracking results in drift-free operation without explicit global optimisation
+	We note the constant time operation of tracking and mapping for a given voxel resolution.
+	completely robust to indoor lighting scenarios
+	6DOF motion unconstrained in the linear systems null space, resulting in tracking drifting or failure.
+	&q in which case will fail??
+	using other instances of ICP allowing piece-wise rigid tracking techniques;
+	new object segmentation methods; 
+	segmented objects can be tracked independently
+	runs on the GPU alongside tracking and mapping, all in real-time
+	accurate and robust tracking of the camera pose
+	each of the components has a trivially parallelisable structure and scales naturally with processing and memory resources.
+	scales naturally with processing and memory resources.
+	fully parallel algorithms for both tracking and mapping
+	&q limitations ??
+	The current system works well for mapping medium sized room with volumes
+	the reconstruction of largescale models such as the interior of a whole building would raise a number of additional challenges.
+	Firstly, the current dense volumetric representation would require too much memory and more importantly, very large exploratory sequences would lead to reconstructions with inevitable drift which would be apparent in the form of misalignments upon trajectory loop closures
+	upon trajectory loop closures.
+	require new thinking for dense modelling.
+	adaptive grid representation
+	Another important challenge is to efficiently perform automatic relocalisation when the tracking has failed in such large models
+	A further interesting direction is to perform automatic semantic segmentation
+	semantic segmentation over the volumetric representation
+	adaptation of reconstruction quality for specific objects or tasks.

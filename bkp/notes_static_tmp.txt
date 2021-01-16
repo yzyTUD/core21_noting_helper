@@ -1,0 +1,163 @@
+	
+
+	a number of different tracking approaches available today provide partial solutions, 
+		no single approach provides all the features necessary for successful multi-user 
+		full-body VR systems
+	we examine the possibilities arising from combining different tracking systems.
+	surrounding fixed sensor arrays.
+	Native Development Kit (NDK)
+	原生开发套件 (NDK) 是一套工具，使您能够在 Android 应用中使用 C 和 C++ 代码，并提供众多平台库
+	进一步提升设备性能，以降低延迟，或运行计算密集型应用，如游戏或物理模拟。
+	您可以在 Android Studio 2.2 或更高版本中使用 NDK 将 C 和 C++ 代码编译到原生库中
+	LLDB：Android Studio 用于调试原生代码的调试程序。
+	Link Gradle to your native library by providing a path to your CMake or ndk-build script file.
+	JNI 是属于 Java 的
+	Native Development Kit，是 Android的一个工具开发包
+	可通过 NDK在 Android中 使用 JNI与本地代码（如C、C++）交互
+	https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS02NjA3ZTkzMjFkM2NiZGRkLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA
+	The ultimate goal of virtual reality, however, is to vanquish all such imponderables. 
+	
+	
+	An IcoSphere is used as the second mesh for our implementation of CSG
+	An IcoSphere  was used because it creates an even distribution of vertices on the sphere
+	each of the IcoSphere’s faces are split into four  new faces to achieve a more detailed approximation of a sphere
+	The IcoSphere’s center point is then set at  the current location of the controller
+	. A Sphere is rendered  to visualise the current size of the IcoSphere for the user.
+	The user has the choice of three operations with our implementation of Constructive Solid  Geometry (CSG).
+	These are Union (two meshes are combined), Intersection (the section  which is part of both meshes ) and Difference (The part of mesh 1 that is not included in  mesh 2). 
+	The operation has to be selected from a drop-down menu in the GUI window. 
+	 results in a single mesh that contains the two parts of the input  meshes
+	Finally, the resulting mesh is returned to the VR view, converted into a new Half-Edge Mesh  and displayed
+	surface contouring algorithm.
+	17K points sampled on the statue of an elephant
+	Minolta laser scanner
+	Surface reconstruction from point sets
+	CGAL provides algorithms for all steps listed above except alignment.
+	sampled on the boundary of a 3D solid
+	he marching cubes (MC) algorithm, which generate isosurfaces from a ... optimized for fast execution and low memory consumption
+	A global function poisson_surface_reconstruction_delaunay() is provided. It takes points with normals as input and handles the whole reconstruction pipeline :
+	draw_triangle
+	On the first level individual 3D scans / depth images are stored one per file. Each line specifies on point:  i j x y z nx ny nz r g b  here i and j are indices in the depth images.
+	
+	
+	Numpy is a great framework, but it cannot utilize GPUs to accelerate its numerical computations
+	A PyTorch Tensor is conceptually identical to a numpy array
+	a Tensor is an n-dimensional array
+	Tensors can keep track of a computational graph and gradients, but they抮e also useful as a generic tool for scientific computing.
+	 PyTorch Tensors can utilize GPUs to accelerate their numeric computations. 
+	, you simply need to specify the correct device.
+	import random #????,???state?,??state??????????,???????????,??????????,??: state[0]=3,????????1???4?? def conflict(state, nextX): 	nextY = len(state) 	for i in range(nextY): 		#????????????????????(????,??)????????,??????,?????? 		if abs(state[i]-nextX) in (0, nextY-i): 			return True 	return False  #???????????????????,???????????????? def queens(num, state=()): 	for pos in range(num): 		if not conflict(state, pos): 			#??????????? 			if len(state) == num-1: 				yield (pos, ) 			#??,??????????,????????,????????? 			else: 				for result in queens(num, state+(pos,)): 					yield (pos, ) + result   #????????,?X????????? def prettyprint(solution): 	def line(pos, length=len(solution)): 		return '. ' * (pos) + 'X ' + '. '*(length-pos-1) 	for pos in solution: 		print line(pos)       
+	Like the numpy example above we need to manually implement the forward and backward passes through the network:
+	Princeton ModelNet project
+	we hired human workers on Amazon Mechanical Turk to manually decide whether each CAD model belongs to the specified cateogries
+	Furthermore, we manually aligned the orientation of the CAD models for this 10-class subset as well. We provide both the 10-class subset and the full dataset for download.
+	https://www.youtube.com/watch?v=Ih-wIsU3EVY
+	Virtual Reality (VR) has become a valuable addition to the fields of digital entertainment, 
+		manufacturing, construction and collaborative workspaces
+	Virtual applications share something in common: 
+	For several years, law enforcement and forensic experts have been surveying 
+		crime scenes with 3D laser scanners.
+	The resulting point cloud captures an incredible amount of detail. 
+		But viewing a 3D model on screen doesn抰 really convey what it feels like at the scene
+	Investigators can now 搘alk-though?crime scenes, examine the relationship 
+		between objects and even explore possible lines of sight.
+	https://www.researchgate.net/profile/Soeren_Discher/publication/325619805
+		_A_Point-Based_and_Image-Based_Multi-Pass_Rendering_Technique_for_Visualizing
+		_Massive_3D_Point_Clouds_in_VR_Environments/links/5b191550aca272021ceed577/
+		A-Point-Based-and-Image-Based-Multi-Pass-Rendering-Technique-for-Visualizing-Massive-3D-Point-Clouds-in-VR-Environments.pdf
+
+	
+	curvature 
+	http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/AV0405/MUIR/av-2.html
+	saddle surface
+	https://github.com/alecjacobson/geometry-processing-curvature
+	http://gts.sourceforge.net/darcs/gts-devel/src/curvature.c
+	https://www.ais.uni-bonn.de/papers/IAS_2012_Holz.pdf
+	Iterative Closest Point treats correspondence as a variable to be estimated.
+	CalculateRigidRegistration
+	one has to provide the this pointer of the instance and the method pointer
+	a leading &-symbol followed by the class name,
+	using the signal in exactly the same way as a function with an integer argument:
+	one can detach a callback with cgv::base::disconnect according to
+	all methods of the same instance attached to the signal as callback are detached as well.
+	Callbacks to methods of instances or functors bear the danger that the instance to which the signal was connected is destructed before the signal is emitted. In this case the signal would call a method or the ()-operator with an invalid this pointer.
+	The support for signals with boolean return values is provided by the cgv::base::bool_signal template. 
+	cgv::base::_0, _1, ..., _9 ... to specify the i-th parameter from the signal
+	One final pitfall should be mentioned:
+	when rebinding to a method m() which is implemented in a base class B of the class A, the this pointer of type A has to be cast to the base type B when used in the rebind method, i.e.
+	connect_copy
+	
+	
+	
+	MATLAB: matrix laboratory
+	numeric computing environment
+	plotting of functions and data, implementation of algorithms, creation of user interfaces, and interfacing with programs written in other languages.
+	allowing access to symbolic computing abilities.
+	multi-domain simulation and model-based design
+	users come from various backgrounds of engineering, science, and economics.
+	They rewrote MATLAB in C and founded MathWorks in 1984 to continue its development.
+	In 2000, MATLAB was rewritten to use a newer set of libraries for matrix manipulation, LAPACK.[23]
+	in particular the teaching of linear algebra and numeric analysis
+	LAPACK ("Linear Algebra Package") is a standard software library for numerical linear algebra.
+	implement the associated matrix factorizations such as LU, QR, Cholesky and Schur decomposition.
+	Details on this scheme can be found in the Naming scheme section in LAPACK Users' Guide.
+	hese projects provide a similar functionality to LAPACK, but the main interface differs from that of LAPACK:
+	Template metaprogramming
+	templates are used by a compiler to generate temporary source code, which is merged by the compiler with the rest of the source code and then compiled
+	it builds expression trees at compile time and generates custom code to evaluate these.
+	Eigen itself can provide BLAS and a subset of LAPACK interfaces.[3]
+
+	
+	the main concepts of Gears-Vk is composition
+	自己摸索，找线索，将网上大量的资料和信息进行提炼，找到自己想要的东西，反反复复，螺旋式上升。进入一个全新的领域真的是要付出许多时间和精力才能逐渐的找到正确的方向
+	我们研究一个全新的领域，也应该首先对其有一个宏观上的认识，知道其中的大模块，在总体上对其有一些感性认识
+	所获得的航拍图像往往有不少的问题，如畸变、噪音等，因此图像预处理阶段主要是对图像进行筛选、去噪、校正的一个过程
+	这里需要提到的是基于倾斜图像的三维重建技术，主要是通过一个五轴的立体相机来进行航拍
+	特征点即为图像中一些特征明显、便于检测、匹配的点，如建筑物的角、边缘点等。特征点的检测是整个三维重建过程中最为基础、根本的一步，其检测效果的好坏对最后的结果有很大的影响，现在常用的检测算法有SIFT、SURF等
+	https://openmvg.readthedocs.io/en/latest/
+	表面（曲面）重建（Surface Reconstruction）
+	稠密点云虽然能够更加形象地还原出实物面貌，但是其仍只是大量孤立的三维空间的集合而已
+	powercrust algorithm
+	using the hull convex hull code by Ken Clarkson
+	The power crust, 6th ACM Symposium on Solid Modeling, 2001
+	The power crust, unions of balls, and the medial axis transform,
+	Structure From Motion(SFM) 是从一系列包含视觉运动信息的多幅二维图像序列中估计三维结构的技术
+	SFM和立体视觉的区别  
+	https://zhuanlan.zhihu.com/p/78533248
+	Delaunay三角剖分、Crust算法
+	Signed Distance Function  Mls  APSS  RIMLS  Poisson  Voronoi Graph ＋ PCA  Screened Poisson  SSD  Wavelet
+	https://zhuanlan.zhihu.com/p/107257234
+	shape from shading
+	https://zhuanlan.zhihu.com/p/131590433
+	PointMVSNet is a deep point-based deep framework for multi-view stereo (MVS).
+	PointMVSNet generates per-view depth map.
+	rectified images from DTU benchmark
+	power crust  ?cocone  ?umbrella filter 
+	Variants
+	https://3d.bk.tudelft.nl/liangliang/publications/2009/BATR_2009.pdf
+	重建出的模型具有精度  高、数据量小、表示简单的特点
+	然而该方法仅能重建平  面类型的几何体，而对于包含球面、圆柱和圆锥等二次曲  面特征的扫描数据，必须寻找相应的基本几何体聚类方法
+	Local Voronoi based triangulation
+		Local Voronoi based triangulation
+		Signed Distance Function
+		Mls
+		APSS
+		RIMLS
+		Poisson
+		Voronoi Graph ＋ PCA
+		Screened Poisson         
+		SSD
+		Wavelet
+	Indicator Function Based Reconstruction
+	
+	
+	
+	target one API that all the popular VR headsets can connect to
+	Interaction System example to help get your VR application off the ground.
+	The SteamVR runtime must be installed
+	opt-in to SteamVR beta
+	been tested with Unity versions 5.4 - 2019.1
+	https://github.com/ValveSoftware/steamvr_unity_plugin.git
+	helpful to have virtual representations of the controllers you're holding. 
+	when you pull the trigger on your controller in real life you can see it pull in the virtual world as well.
+	strongly encourages the feeling of presence.
