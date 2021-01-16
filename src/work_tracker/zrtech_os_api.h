@@ -152,4 +152,5 @@ void log_current_working(std::string task_description, int expected_working_time
 		+ "\n\t\tactual_to:\t" + to_t 
 		+ "\n\t\tactual_takes:\t" + std::to_string(length_t) 
 		+ " min "<< endl;
+	fs.close();
 }
