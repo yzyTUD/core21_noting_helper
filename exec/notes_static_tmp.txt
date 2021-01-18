@@ -1,0 +1,29 @@
+
+	
+	
+	 For example, you might want two subshaders, one of higher quality for PC/Desktop and one of lower quality but faster for mobile.
+	Here, we're saying we have a vertex function called "vertexFunction", and a fragment function called "fragmentFunction"".
+	_Color
+	UnityCG.cginc
+	COLOR
+	https://github.com/TwoTailsGames/Unity-Built-in-Shaders/blob/master/CGIncludes/UnityCG.cginc
+	fixed4 color : COLOR;
+	fcolor
+	        // create new colors array where the colors will be created.          Color[] colors = new Color[vertices.Length];            for (int i = 0; i < vertices.Length; i++)              colors[i] = Color.Lerp(Color.red, Color.green, vertices[i].y);
+	processedVertices
+	processedVertices.ToArray()
+	processedVertices
+	Color.green
+	processedVertices[i].y
+	Color.green
+	 List<Vector3>
+	Count
+	processedVertices[i].y
+	
+	ZBrush is a digital sculpting tool that combines 3D/2.5D modeling, texturing and painting. 
+	It uses a proprietary "pixol" technology which stores lighting, color, material, orientation, and depth information for the points making up all objects on the screen
+	Our flagship product and the industry standard for 3D sculpting
+	since we only supplied 3 colors, not the huge color palette we're seeing right now.
+	 This is all the result of something called fragment interpolation in the fragment shader. 
+	results in a lot more fragments than vertices originally specified. 
+	 The rasterizer then determines the positions of each of those fragments based on where they reside on the triangle shape.

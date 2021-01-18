@@ -3,9 +3,48 @@
 		actual_from:	2021/1/16_15:9
 		actual_to:	2021/1/16_15:9
 		actual_takes:	53 min 
-
 	 manage_docs
 		exp_time:	20
 		actual_from:	2021/1/16_15:11
 		actual_to:	2021/1/16_15:15
+		actual_takes:	4 min 
+	 task_design
+		exp_time:	10
+		actual_from:	2021/1/16_15:52
+		actual_to:	2021/1/16_15:56
+		actual_takes:	4 min 
+	 task_design
+		exp_time:	10
+		actual_from:	2021/1/16_15:52
+		actual_to:	2021/1/16_15:57
+		actual_takes:	5 min 
+	 task_design
+		exp_time:	10
+		actual_from:	2021/1/16_15:52
+		actual_to:	2021/1/16_15:58
+		actual_takes:	6 min 
+	 task_design
+		exp_time:	10
+		actual_from:	2021/1/16_15:52
+		actual_to:	2021/1/16_15:58
+		actual_takes:	6 min 
+	 break
+		exp_time:	5
+		actual_from:	2021/1/16_16:0
+		actual_to:	2021/1/16_16:5
+		actual_takes:	5 min 
+	 unit_steamvr
+		exp_time:	90
+		actual_from:	2021/1/16_16:35
+		actual_to:	2021/1/16_17:51
+		actual_takes:	76 min 
+	 unity_study
+		exp_time:	60
+		actual_from:	2021/1/16_21:9
+		actual_to:	2021/1/16_21:33
+		actual_takes:	24 min 
+	 unity
+		exp_time:	60
+		actual_from:	2021/1/16_21:33
+		actual_to:	2021/1/16_21:37
 		actual_takes:	4 min 

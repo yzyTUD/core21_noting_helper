@@ -6,7 +6,7 @@
 int main(int argc, char** argv){
 	int timelength = 30;
 	std::string brief_task_description;
-	std::cout << "Shift-F: force log, Shift-Q: quit, Shift-T: ask for time reminds" << std::endl;
+	std::cout << "Shift-F: force log, Shift-T: terminate, Shift-L: let me know how much time reminds" << std::endl;
 	std::cout << "log automatically when time limit arrives for the first time" << std::endl;
 	std::cout << "brief task description: "; cin >> brief_task_description;
 	std::cout << "how long is the current task expected?: (in min) "; cin >> timelength;
@@ -45,9 +45,8 @@ int main(int argc, char** argv){
 		}
 		// get time remind: 
 		if ((GetAsyncKeyState(VK_LSHIFT)) && (GetAsyncKeyState('L') & 0x8000)) {
-			log_current_working(brief_task_description, timelength, start_time_stemp, get_current_date_time_as_stemp(), get_current_date_time_as_minutes() - start_min);
-			Beep(528, 500);
-			exit(0);
+			int time_to_go = timelength - (get_current_date_time_as_minutes() - temp_min);
+			std::cout << "time to go: (in min) " << time_to_go << std::endl;
 		}
 	}
 	return 0;
