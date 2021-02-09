@@ -20,10 +20,116 @@
 	Count
 	processedVertices[i].y
 	
-	ZBrush is a digital sculpting tool that combines 3D/2.5D modeling, texturing and painting. 
-	It uses a proprietary "pixol" technology which stores lighting, color, material, orientation, and depth information for the points making up all objects on the screen
-	Our flagship product and the industry standard for 3D sculpting
-	since we only supplied 3 colors, not the huge color palette we're seeing right now.
-	 This is all the result of something called fragment interpolation in the fragment shader. 
-	results in a lot more fragments than vertices originally specified. 
-	 The rasterizer then determines the positions of each of those fragments based on where they reside on the triangle shape.
+
+	
+	color stream, in general, is accumulated to the voxel to scan  color representation in a similar manner that captures depth
+	there is an inevitable tradeoff between  spatial resolution and time performance
+	asynchronization between the depth and  color frames
+	They lead to inaccurate  estimation of imperfect geometry, color camera pose, and  the mismatch between the geometry and color images
+	mitigated
+	These challenges could be mitigated by applying a texture mapping method that includes global/local warping of  texture to geometry
+	https://dl.acm.org/doi/pdf/10.1145/566654.566590
+	http://www.kunzhou.net/publications/isochart.pdf
+	http://qianyi.info/scenedata.html
+	http://vladlen.info/papers/color-mapping.pdf
+
+
+
+
+
+	the state-of-the-art models tend to be exceptionally data-hungry
+	Large labeled training datasets, expensive and tedious to produce, are required to optimize millions of parameters in deep network models
+	the available datasets are quickly becoming outdated in terms of size and density.
+	amplify human effort through a partially automated labeling scheme,
+	leveraging deep learning with humans in the loop
+	We experiment with training popular convolutional networks and find that they achieve substantial performance gains when trained on this dataset.
+	
+	
+	properties of a geometric surface
+	heavily used in many areas
+	shadings and other visual effects.
+	the vector perpendicular to the surface 
+	explaining what goes on behind the scenes.
+	a k-d tree (short for k-dimensional tree) is a space-partitioning data structure
+	The k-d tree is a binary tree in which every leaf node is a k-dimensional point
+	k-dimensional
+	implicitly generating a splitting hyperplane that divides the space into two parts, known as half-spaces
+	dimensional 
+	you’re a long time veteran
+	comprehensive list of tutorials for PCL
+	object detection & reconstruction,
+	Transforming, filtering, and registering 3D point clouds
+	Segmenting 3D point clouds into clusters and fitting them to geometric shapes
+	Reading and visualizing the data
+	visualization of vehicle-based point cloud data.
+	outlier and noise removal mechanisms
+	certain datasets present a large number of shadow points.
+	outliers can be filtered by performing a statistical analysis
+	trimming those which do not meet a certain criteria. 
+	considered as outliers and trimmed from the dataset.
+	walk you through the components of your PCL installation, 
+	noise removal
+	This complicates the estimation of local point cloud 3D features
+	assuming that the resulting distribution is Gaussian with a mean and a standard deviation
+	all points whose mean distances are outside an interval defined by the global distances mean and standard deviation can be considered as outliers and trimmed from the dataset.
+	describe geometrical patterns
+	based on the information available around the point.
+	underlying surface’s estimated curvature
+	local features
+	split into smaller chunks using spatial decomposition techniques
+	spatial decomposition techniques
+	Unarguably
+	eigendecomposition
+	eigendecomposition (i.e., compute the eigenvectors and eigenvalues) of the k-neighborhood point surface patch
+	the eigenvector corresponding to the smallest eigenvalue will approximate the surface normal n at point p
+	the surface curvature change will be estimated from the eigenvalues as
+	A LAS (LiDAR Aerial Survey) is an open and binary file format which stores LiDAR point cloud data and a point classification system
+	its latest Version is LAS 1.4.
+	apb_foyer_sampled_seg_pc
+	Detection of semantic primitives using  RANSAC and SVM,
+	live-view
+	 RANSAC  is used to estimate the presence of geometric primitives
+	a student of mine asked the standard solution to the exercises, I thought It is not allowed?
+	mobile handheld devic
+	opens new ways to  interact with it
+	geometric primitives
+	structural modeling
+	Despite a high  computational effort, a meshed surface usually has no semantic  meaning
+	our everyday environment largely consists of  very few geometric primitives, mostly planes, boxes, cylinders 
+	prior knowledge
+	automatic highlighting of object in the environment  become feasible.
+	Semantic modeling
+	tedious
+	In the proposed method,
+	一台手机可以连接多台蓝牙设备？
+	蓝牙模块通常一般开放的信道也就只能支持到7个左右的并发，也就是说智能手机、平板电脑或者PC通常也就只能同7台蓝牙设备并发连接使用
+	蓝牙4.0后，协议本身是允许更多的设备连接使用，但每个协议栈主机分配给协议栈的资源，产品官方其实在介绍蓝牙多连功能时，通常也会公布一个保守的链接数量
+	而目前蓝牙已经升级到了5.0，有没有必要购买模块DIY一步升级到位呢？
+	 a set  of binary support vector machines (SVM),
+	to determine the quality  of the fit.
+	primitive label
+	forwarded to the next frame
+	ill-fitting primitive
+	which  we found to be integral parts of everyday environments.
+	has been investigated in various contexts
+	robot grasping, collision detection
+	Hough transforms
+	contextual relations.
+	investigating their contextual relations
+	real-time  scene segmentation
+	semantic segmentation of 3D data use convolutional deep belief  networks
+	conditional random fields
+	use concrete object classes and require a large amount of data for  training.
+	a generalized formulation for  objects consisting of geometric primitives is still missing
+	 simultaeneous localization and mapping  (SLAM) provides a real-time alternative to offline acquisition of  3D point models.
+	simultaeneous localization and mapping  (SLAM)
+	segmentation-fitting-refinement pipeline
+	applied over multiple frames to refine detected primitives
+	make use of ML to decide whether a shape has to be discarded or kept  at runtime
+	probabilistic  graphical models 
+	closes a gap in research,
+	particularly useful in an AR context
+	collectively refer to the 3D point cloud, the  related RGB image and the camera pose as a frame
+	not an intrinsic restriction of the employed algorithms
+	 the user expects quick system response.
+	The scenarios are static,  due to the nature of the sensors

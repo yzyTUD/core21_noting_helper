@@ -1,0 +1,20 @@
+	 cg1_score
+		exp_time:	20
+		actual_from:	2021/1/21_3:58
+		actual_to:	2021/1/21_4:5
+		actual_takes:	7 min 
+	 cg1
+		exp_time:	60
+		actual_from:	2021/1/21_12:46
+		actual_to:	2021/1/21_13:44
+		actual_takes:	58 min 
+	 cg1_email_back
+		exp_time:	20
+		actual_from:	2021/1/21_13:45
+		actual_to:	2021/1/21_14:5
+		actual_takes:	20 min 
+	 cg1_email_back
+		exp_time:	20
+		actual_from:	2021/1/21_13:45
+		actual_to:	2021/1/21_14:25
+		actual_takes:	40 min 
