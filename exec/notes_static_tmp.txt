@@ -133,3 +133,70 @@
 	not an intrinsic restriction of the employed algorithms
 	 the user expects quick system response.
 	The scenarios are static,  due to the nature of the sensors
+	医学影像涉及患者隐私，对算法容错率很低
+	在一些比较容易的任务上能达到和医生差不多的水平，在稍微复杂一些的问题上与医生还有很大差距
+	既要有一定的医学背景知识，也一定要有计算机编程的能力
+	平时不仅要数理化全能，还需要良好的绘画功底，图为胸部某一断层图。
+	Poisson reconstruction的目的是生成watertight的且可以保有表面细节的重建方法
+	关键在于indicator function
+	在表面外为1，在表面内为0.
+	只有在接近物体表面的附近才有会有梯度向量，其余位置均为0向量。
+	泛函，将曲面外的点映射为00，将曲面内的点映射为11
+	全局求解的方法，一次性考虑所有的点。
+	此时所得到的表面附近梯度就正好等于了论文中所阐述的inner surface normal，也就是朝向表面内的法向量，-n
+	指示函数来找到等值面然后通过marching cube方法
+	marching
+	Efficient rendering of photo-realistic virtual worlds is a long standing effort of computer graphics.
+	photo-realistic computer graphics more widely accessible. 
+	 namely deep generative models
+	combines generative machine learning techniques with physical knowledge from computer  graphics
+	robust tracking
+	noisy and/or  oversmoothed
+	or has holes due to occlusion
+	this makes it nearly  impossible to re-synthesize photo-realistic images
+	but tracking dri? and insu乧ient geometric  resolution leads to blur
+	Textures are an alternative that tackles the  problem of missing spatial resolution
+	here, the geometry and color  resolutions are decoupled
+	decoupled
+	 the standard graphics pipeline is used to render a view-dependent screen-space feature map
+	n converted to photo-realistic imagery based on a Deferred Neural Renderer
+	o ?nd the best renderer and texture map
+	Surface light ?elds store  the direction-dependent radiance of every point on the surface
+	utilize a very coarse geometry  proxy and ?ll in the missing content based on high-resolution 2D  textures 
+	Huang et al. 2017
+	Image-based rendering (IBR) pushes  this to the limit
+	However,  many IBR approaches su?er from ghosting artifacts and problems  at the occlusion boundaries
+	 changes the standard rendering  pipeline to address the shortcomings of imperfect 3D surface geometry for rendering photo-realistic imagery
+	neural textures
+	encode the  appearance of an object in a normalized texture space.
+	light-?eld rendering
+	able to handle scenes  with complex non-Lambertian surface properties
+	Lumitexels/Lumispheres
+	Our neural textures can be seen as a learned  analog to these lumitexels
+	instead of hand-cra?ed features
+	?nd optimal features that can  be interpreted by a neural network such that the original images  are best reproduced
+	?e used encoder-decoder network structure  that estimates per-vertex colors is specially designed for the  surface light ?eld use case and learns to ?ll missing sample data  across vertices. 
+	 encoder-decoder
+	In contrast, the Deep Surface Light Fields approach  needs high quality reconstructions
+	‘slight misalignment  can lead to strong artifacts such as ghosting and blurring
+	synthesize arti?cial 2D imagery
+	generative adversarial networks (GANs) [Goodfellow et al.  2014]
+	impressive results
+	reenactment synthesis pipeline
+	expression transfer
+	we generate an altered uv map of  the target actor matching
+	enable photo-realistic image  synthesis based on imperfect commodity 3D reconstructions.
+	Neural Textures are a new  graphics primitive that can have arbitrary dimension and store  a high-dimensional learned feature vector per texel
+	Deferred Neural Rendering:  Image Synthesis using Neural Textures
+	trained Deferred Neural Renderer, the sampled image space feature  map is then interpreted.
+	https://github.com/luanfujun/deep-photo-styletransfer
+	Typically, they contain appearance information,  such as the albedo of an object, but they can also store custom  a?ributes
+	such as high-frequency geometric detail in the form of  normal or displacement map
+	interpreted by programmed shader programs.
+	Neural Textures are an extension of traditional texture  maps
+	they store learned high-dimensional feature maps capable of storing signi?cantly more information
+	new deferred neural rendering pipeline
+	Both mini?cation and magni?cation might appear at the  same time for di?erent parts of the scene. I
+	Mipmaps are used to tackle this challenge. Inspired by  classical Mipmaps, we propose to employ Neural Texture Hierarchies  with K levels.
+	We train our neural rendering approach end-to-end using stochastic  gradient descent.
+	https://math.stackexchange.com/questions/681376/texture-mapping-from-a-camera-image-knowing-the-camera-pose
