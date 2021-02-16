@@ -200,3 +200,61 @@
 	Mipmaps are used to tackle this challenge. Inspired by  classical Mipmaps, we propose to employ Neural Texture Hierarchies  with K levels.
 	We train our neural rendering approach end-to-end using stochastic  gradient descent.
 	https://math.stackexchange.com/questions/681376/texture-mapping-from-a-camera-image-knowing-the-camera-pose
+	MeshLab can manipulate the vertex and face colors using a series of photoshop-like filters (gamma, saturation, brightness, contrast, levels, smoothing, sharpening).
+	painting interface for vertex colors. Scalar values
+	be mapped on vertex/face color
+	have a visual representation of that value.
+	Color information may be as important as geometry
+	MeshLab contains a pipeline for the alignment and projection of color information (from a set of uncalibrated images) onto a 3D model
+	many more geometrical and topological singularities
+	geometrical detail and texture mapping, or to selectively reduce the number of points in a pointcloud. 
+	In other cases, the user may want to increase the number of triangles (or points): MeshLab also provides different subdivision schemes
+	remeshing
+	increase geometric complexity of 3D models
+	optimize point distribution and triangulation quality.
+	Different geometric information (like curvature, geodesic distance, or local vertex density) may be calculated on meshes and 3D models using automatic filters.
+	Render > show vertex Normals 
+	Dear Matthew
+	Krishnan
+	Dear Matthew, Krishnan?,         12 is suitable for me.         Best regards,     Zhongyuan 
+	Dear Matthew, Krishnan?, 12 is suitable for me. Best regards, Zhongyuan
+	acquilab 1_nml
+	                      https://github.com/LiangliangNan/PolyFit 
+	              https://lgg.epfl.ch/publications/2014/reconstar/paper.pdf              Nico papers:                   https://tud.qucosa.de/api/qucosa%3A32056/attachment/ATT-0/?L=1              https://arxiv.org/pdf/1703.04079.pdf              https://3d.bk.tudelft.nl/liangliang/publications/2009/BATR_2009.pdf              https://www.mdpi.com/2220-9964/9/5/330/pdf              RandLANet: Efficient Semantic Segmentation of Large-Scale PointClouds              Pytorch: Learning Efficient Point Cloud Generation for Dense 3D Object Reconstruction              https://tud.qucosa.de/search/?no_cache=1&L=1&tx_dpf_frontendsearch%5Baction%5D=search&tx_dpf_frontendsearch%5Bcontroller%5D=SearchFE              stru: 
+	Voronoi based
+	[K?nig13]
+	bundlefusion
+	                  https://github.com/alicevision/meshroom
+	Victor
+	active participation in a direct and practical way.
+	 photogrammetry software
+	geo-referenced maps
+	Texture Reprojection
+	You can project a texture created on a high-detail model onto a highly simplified model for considerably shorter time(compared to 
+	get the sharpest texture possible. 
+	exture a strongly simplified or a re-topologized model.
+	A model after simplification loses its roughness and thus becomes much smoother,mainly in any ragged areas
+	This is due to large differences between the two surfaces.
+	"Nearest sampling" is fast although might result inaliasing artifacts unless sufficient "Supersampling" is in use
+	"Trilinear sampling" (recommended) eliminates any aliasing artifacts
+	which is fine for denser objects
+	 and which makes the model smaller in size, compared to a textured model
+	Simply speaking, texturing creates a small image for each triangle of the model
+	This method is therefore more realistic than coloring. 
+	Reality Capture
+	Create a MeshDecimate node, connect it, adjust parameters and start computation
+	Double-Click on a node to visualize it in the 3D viewer.
+	Step 6: Retexturing after Retopology
+	re-texture this geometry.
+	External retopology and custom UVs 
+	outside Meshroom (e.g: retopology / unwrap)
+	https://www.youtube.com/watch?v=-CwdugODkmQ
+	I've seen this video where they were using Laser in combination with photo scanning, and they've got really good results.
+	But it's far from being ready for end-users.
+	https://github.com/alicevision/meshroom/wiki/Texturing-after-external-re-topology
+	https://github.com/alicevision/meshroom/issues/764
+	https://github.com/alicevision/meshroom/wiki/Texturing-after-external-re-topology
+	https://www.danielgm.net/cc/forum/viewtopic.php?f=17&t=1680&sid=c9b39d0d95f556e7e88e1e610719537e
+	internationalized 
+	multi-platform (GNU Linux, Windows and MacOS) and provides several tools:
+	https://github.com/miykael/3dprintyourbrain
