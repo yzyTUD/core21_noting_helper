@@ -229,32 +229,120 @@
 	active participation in a direct and practical way.
 	 photogrammetry software
 	geo-referenced maps
-	Texture Reprojection
-	You can project a texture created on a high-detail model onto a highly simplified model for considerably shorter time(compared to 
-	get the sharpest texture possible. 
-	exture a strongly simplified or a re-topologized model.
-	A model after simplification loses its roughness and thus becomes much smoother,mainly in any ragged areas
-	This is due to large differences between the two surfaces.
-	"Nearest sampling" is fast although might result inaliasing artifacts unless sufficient "Supersampling" is in use
-	"Trilinear sampling" (recommended) eliminates any aliasing artifacts
-	which is fine for denser objects
-	 and which makes the model smaller in size, compared to a textured model
-	Simply speaking, texturing creates a small image for each triangle of the model
-	This method is therefore more realistic than coloring. 
-	Reality Capture
-	Create a MeshDecimate node, connect it, adjust parameters and start computation
-	Double-Click on a node to visualize it in the 3D viewer.
-	Step 6: Retexturing after Retopology
-	re-texture this geometry.
-	External retopology and custom UVs 
-	outside Meshroom (e.g: retopology / unwrap)
-	https://www.youtube.com/watch?v=-CwdugODkmQ
-	I've seen this video where they were using Laser in combination with photo scanning, and they've got really good results.
-	But it's far from being ready for end-users.
-	https://github.com/alicevision/meshroom/wiki/Texturing-after-external-re-topology
-	https://github.com/alicevision/meshroom/issues/764
-	https://github.com/alicevision/meshroom/wiki/Texturing-after-external-re-topology
-	https://www.danielgm.net/cc/forum/viewtopic.php?f=17&t=1680&sid=c9b39d0d95f556e7e88e1e610719537e
-	internationalized 
-	multi-platform (GNU Linux, Windows and MacOS) and provides several tools:
-	https://github.com/miykael/3dprintyourbrain
+
+	
+	
+	
+	
+
+		Dense 3D Point Cloud Reconstruction
+	Deep Pyramid Network
+	https://cg.cs.uni-bonn.de/en/publications/paper-details/schnabel-2007-efficient/
+	Efficient RANSAC for Point-Cloud Shape Detection
+	https://www.ais.uni-bonn.de/papers/IAS_2012_Holz.pdf
+	Fast Range Image Segmentation and Smoothing using  Approximate Surface Reconstruction and Region Growing
+	structured overview of the  field
+	classifies the existing literature
+	the kind of indoor  environments that still pose major challenges.
+	https://arxiv.org/list/cs.GR/recent
+	https://matthewberger.github.io/papers/reconstar.pdf
+	State of the Art in Surface Reconstruction from Point Clouds
+	https://doc.cgal.org/latest/Manual/tuto_reconstruction.html
+	https://arxiv.org/pdf/2102.05921.pdf
+	https://hal.inria.fr/hal-01348404v2/document
+	image_dir
+	canvas
+	A = np.empty([1816, 2464, 3])
+	that optimize certain application-dependent characteristics
+	https://openaccess.thecvf.com/content_iccv_2015/papers/Ikehata_Structured_Indoor_Modeling_ICCV_2015_paper.pdf
+	Structured Indoor Modeling
+	a dataset of high quality reconstructions of a variety of indoor spaces.
+	Each reconstruction has clean dense geometry, high resolution and high dynamic range textures
+	glass and mirror surface information
+	dense geometry
+	ReplicaRenderer.
+	https://github.com/facebookresearch/Replica-Dataset.git
+	grbgetkey 95a24c8c-7244-11eb-be27-0a7c4f30bdbe
+	https://arxiv.org/pdf/1906.05797.pdf
+	18 highly  photo-realistic 3D indoor scene reconstructions
+	egocentric computer vision
+	embodied agents (virtual robots) performing navigation
+	natively used with AI Habitat [24] for  training and testing embodied agents
+	full fidelity
+	Digitizing real environments has  many future use cases
+	 virtual telepresence
+	a smaller domain gap between simulation and  reality.
+	Compared to other 3D datasets such as Matterport 3D [6]  and ScanNet [8], Replica achieves significantly higher levels  of realism
+	instance annotation of each primitive
+	a large range of object instances from 88  semantic classes
+	 a large range of object instances from 88  semantic classes to facilitate interesting machine learning  tasks
+	Geometry and texturing artifacts are noticeable  in both Matterport 3D and ScanNet
+	https://arxiv.org/pdf/1906.05797.pdf
+	(1) human-generated synthetic scenes based on  CAD models and (2) reconstructions of real environments.  They vary in semantic and visual realism
+	semantically overly simplistic
+	InteriorNet
+	interiornetdataset.github.io
+	https://interiornet.org/
+	InteriorNet: Mega-scale Multi-sensor Photo-realistic  Indoor Scenes Dataset
+	We also thank the Kujiale artists and other professionals for their great efforts into editing and labelling millions of models and scenes
+	https://interiornet.org/items/interiornet_paper.pdf
+	Felsenszwalb segmentation
+	 renderable reflectors
+	surfaces  were not sufficiently captured during scanning
+	ensure the highest quality 3D meshes
+	in our custom built software tool by specifying the boundary  of the reflector on the mesh.
+	forest data structure which we call a segmentation forest
+	segmentation forest data structure
+	Rendering at different levels  of the forest leads to different segmentations of the scene.
+	The  scenes were selected with an eye towards semantic variety
+	as well as their scale
+	 touch up.
+	facilitate easier human interpretation for manual touch up.
+	HDR textures are obtained by cycling the exposure times  of the RGB texture camera
+	fusing the measured radiance per texel into 16 bit  floating point RGB values
+	Mudbox 
+	https://arxiv.org/pdf/1906.05797.pdf
+	that is pretty impressive and exactly similar to our goal
+	Instant Meshes
+	https://github.com/wjakob/instant-meshes
+	https://igl.ethz.ch/projects/instant-meshes/instant-meshes-SA-2015-jakob-et-al.pdf
+	Instant Field-Aligned Meshes
+	                  [2015]  Instant Field-Aligned Meshes                      https://igl.ethz.ch/projects/instant-meshes/instant-meshes-SA-2015-jakob-et-al.pdf
+	The standard workflow is to solve for an orientation field (first blue button) and a position field (second blue button) in sequence
+	descriptive message when hovering the mouse cursor above for a second.
+	OnlineSurfaceReconstruction
+	extract NARF Features
+	interest point detection
+	In this work we focus on single range scans, as obtained  with 3D laser range finders or stereo cameras
+	cloud
+	    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);      if (pcl::io::loadPLYFile<pcl::PointXYZ>(          "E:/Dataset_2021/PointClouds_BLK360/2073-office-mm_08_02_2021_ns4/best-pointcloud-CC-nml.ply", *cloud) == -1)      {          std::cout << "Cloud reading failed." << std::endl;          return (-1);      }
+	    pcl::visualization::CloudViewer viewer("Cluster viewer");      viewer.showCloud(cloud);      while (!viewer.wasStopped())      {      }
+	find a transformation that minimizes the distance
+	This process is repeated, since correspondence search is affected by the relative position and orientation of the data sets
+	Once the alignment errors fall below a given threshold, the registration is said to be complete.
+	The registration library implements a plethora of point cloud registration algorithms for both organized and unorganized (general purpose) datasets.
+	For instance, PCL contains a set of powerful algorithms that allow the estimation of multiple sets of correspondences, as well as methods for rejecting bad correspondences, and estimating transformations in a robust manner.
+	estimating transformations in a robust manner.
+	segmenting a point cloud into distinct clusters.
+	spatially isolated regions.
+	break the cloud down into its constituent parts
+	SAmple Consensus (SAC) methods like RANSAC and models like planes and cylinders
+	detect specific models and their parameters in point clouds.
+	Some of the models implemented in this library include: lines, planes, cylinders, and spheres. Plane fitting is often applied to the task of detecting common indoor surfaces
+	Other models can be used to detect and segment objects with common geometric structures (e.g., fitting a cylinder model to a mug).
+	The surface library deals with reconstructing the original surfaces from 3D scans
+	Smoothing and resampling can be important if the cloud is noisy
+	a very fast triangulation of the original points, and a slower meshing that does smoothing and hole filling as well.
+	The range_image library contains two classes for representing and working with range images
+	Range images are a common 3D representation and are often generated by stereo or time-of-flight cameras
+	With knowledge of the camera’s intrinsic calibration parameters, a range image can be converted into a point cloud.
+	The search library provides methods for searching for nearest neighbors using different data structures, including:  KdTree  Octree  brute force  specialized search for organized datasets
+	specialized search for organized datasets
+	simplify AR/VR software development
+	https://github.com/KhronosGroup/OpenXR-SDK.git
+	shaders in an intermediate representation called SPIR-V.
+	This makes it possible to use different shader languages by compiling them to that bytecode format. 
+	 The primary shader language used here is GLSL but thanks to an external contribution you'll also find HLSL shader sources.
+	https://github.com/nvpro-samples/vk_raytracing_tutorial_KHR
+	https://github.com/SaschaWillems/Vulkan
+	VULKAN_EXAMPLE_MAIN()
